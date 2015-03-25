@@ -8,6 +8,48 @@
  */
 
 /**
+ * Gets the book meta data value from the provided key.
+ * If the value is not available it will return false
+ *
+ * @access public
+ * @param string $key
+ * @return mixed boolean/string
+ */
+function genesis_author_pro_get_book_meta( $key ){
+
+	$genesis_author_pro_book_meta = genesis_get_custom_field( '_genesis_author_pro' );
+
+	if( empty( $genesis_author_pro_book_meta[$key] ) ){
+		return false;
+	}
+
+	return $genesis_author_pro_book_meta[$key];
+
+}
+
+/**
+ * Wrapper function to echo genesis_author_pro_get_book_meta().
+ * It will return the value if set or returns false if not set.
+ *
+ * @access public
+ * @param string $key
+ * @return mixed boolean/string
+ */
+function genesis_author_pro_book_meta( $key ){
+
+	if( $value = genesis_author_pro_get_book_meta( $key ) ) {
+
+		echo $value;
+
+		return $value;
+
+	}
+
+	return false;
+
+}
+
+/**
  * Removes action from all provided hooks.
  * This checks to see if the hook has the action
  * then builds a remove_action() with the $hook, $action, and returned $priority value.
@@ -141,7 +183,10 @@ function genesis_author_pro_custom_post_class( $classes ) {
 function genesis_author_pro_grid() {
 
 	if ( $image = genesis_get_image( 'format=url&size=author_pro_archive' ) ) {
-		printf( '<div class="author-pro-featured-image"><a href="%s" rel="bookmark"><img src="%s" alt="%s" /></a></div>', get_permalink(), $image, the_title_attribute( 'echo=0' ) );
+		
+		$banner = ( $text = genesis_author_pro_get_book_meta( 'featured_text' ) ) ? sprintf( '<span class="book-featured-text-banner">%s</span>', $text ) : '';
+		
+		printf( '<div class="author-pro-featured-image"><a href="%s" rel="bookmark"><img src="%s" alt="%s" /></a>%s</div>', get_permalink(), $image, the_title_attribute( 'echo=0' ), $banner );
 
 	}
 
