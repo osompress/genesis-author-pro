@@ -5,14 +5,46 @@
  */
 class Genesis_Author_Pro_Book_Meta {
 
+	/**
+	 * The post object of the current book
+	 *
+	 * @var object
+	 * @access public
+	 */
 	var $post;
 
+	/**
+	 * The post ID of the current book
+	 *
+	 * @var string
+	 * @access public
+	 */
 	var $post_ID;
 
+	/**
+	 * The saved book meta values for the current book
+	 *
+	 * @var array
+	 * @access private
+	 */
 	private $_meta_value;
 
+	/**
+	 * Fields to be output in the book editor custom meta fields.
+	 *
+	 * @var array
+	 * @access private
+	 */
 	private $_fields;
 
+	/**
+	 * Prefix used for building the book meta name and IDs
+	 *
+	 * (default value: '_genesis_author_pro')
+	 *
+	 * @var string
+	 * @access private
+	 */
 	private $_prefix = '_genesis_author_pro';
 
 	/**
@@ -44,6 +76,14 @@ class Genesis_Author_Pro_Book_Meta {
 
 	}
 
+	/**
+	 * Action on the add_meta_boxes hook.
+	 * Adds the book details metabox
+	 *
+	 * @access public
+	 * @static
+	 * @return void
+	 */
 	static public function add_meta_boxes(){
 
 		global $Genesis_Author_Pro_CPT, $Genesis_Author_Pro_Book_Meta;
@@ -59,8 +99,17 @@ class Genesis_Author_Pro_Book_Meta {
 
 	}
 
+	/**
+	 * Callback function for the book details meta box.
+	 * Builds the book details meta box output.
+	 *
+	 * @access public
+	 * @static
+	 * @param object $post
+	 * @return void
+	 */
 	static public function meta_box( $post ){
-		
+
 		global $Genesis_Author_Pro_Book_Meta;
 
 		// Add an nonce field so we can check for it later.
@@ -77,6 +126,13 @@ class Genesis_Author_Pro_Book_Meta {
 
 	}
 
+	/**
+	 * Sets the post object and post ID class variables.
+	 *
+	 * @access public
+	 * @param object $post
+	 * @return void
+	 */
 	public function set_post( $post ){
 
 		$this->post    = $post;
@@ -84,16 +140,32 @@ class Genesis_Author_Pro_Book_Meta {
 
 	}
 
+	/**
+	 * Gets the saved meta value and sets the private $_meta_value object variable.
+	 *
+	 * @access public
+	 * @return void
+	 */
 	public function set_meta_value(){
 
 		$this->_meta_value = get_post_meta( $this->post_id, $this->_prefix, true );
 
 	}
 
-	public function meta_rows( $fields = '', $echo = true ){
+	/**
+	 * Builds table row output for indicated fields.
+	 * Uses the $_fields object variable if no $fields value is provided
+	 * optionally echoes the output.
+	 *
+	 * @access public
+	 * @param array $fields (default: array())
+	 * @param bool $echo (default: true)
+	 * @return string
+	 */
+	public function meta_rows( $fields = array(), $echo = true ){
 
 		$fields = $fields ? $fields : $this->_fields;
-		
+
 		$rows = '';
 
 		foreach( $fields as $field ){
@@ -109,15 +181,22 @@ class Genesis_Author_Pro_Book_Meta {
 			);
 
 		}
-		
+
 		if( $echo ){
 			echo $rows;
 		}
-		
+
 		return $rows;
-		
+
 	}
 
+	/**
+	 * Sets the $_fields object variable.
+	 * The fields are used to build the book details rows/inputs
+	 *
+	 * @access public
+	 * @return void
+	 */
 	public function set_fields(){
 
 		$this->_fields = array(
@@ -164,6 +243,12 @@ class Genesis_Author_Pro_Book_Meta {
 				'type'        => 'text',
 			),
 			array(
+				'name'        => 'available',
+				'label'       => __( 'Available in', 'genesis-author-pro' ),
+				'description' => __( 'A list of formats the book is available in. Example: Hardback, Paperback, PDF, and Kindle', 'genesis-author-pro' ),
+				'type'        => 'text',
+			),
+			array(
 				'name'        => 'button_1',
 				'label'       => __( 'Button 1', 'genesis-author-pro' ),
 				'description' => __( 'This will create a button on the book page that can be used as a link for purchase, download, etc.', 'genesis-author-pro' ),
@@ -185,6 +270,14 @@ class Genesis_Author_Pro_Book_Meta {
 
 	}
 
+	/**
+	 * Gets the individual field output.
+	 * Uses a switch to check the type and return the appropriately formated output.
+	 *
+	 * @access private
+	 * @param array $field
+	 * @return string
+	 */
 	private function _get_field( $field ){
 
 		switch( $field['type'] ){
@@ -201,6 +294,14 @@ class Genesis_Author_Pro_Book_Meta {
 
 	}
 
+	/**
+	 * Builds the button field output.
+	 * Calls the object meta_rows() method to build the text field output.
+	 *
+	 * @access private
+	 * @param array $field
+	 * @return sring
+	 */
 	private function _get_button_field( $field ){
 
 		$rows = array(
@@ -220,28 +321,56 @@ class Genesis_Author_Pro_Book_Meta {
 
 	}
 
+	/**
+	 * Builds basic text field output.
+	 *
+	 * @access private
+	 * @param array $field
+	 * @return string
+	 */
 	private function _get_text_field( $field ){
 
 		$name  = $this->_get_field_name(  $field['name'] );
 		$id    = $this->_get_field_id(    $field['name'] );
 		$value = $this->_get_field_value( $field['name'] );
 
-		return sprintf( '<input type="text" class="text-wide" name="%s" id="%s" value="%s" />', $name, $id, $value );
+		return sprintf( '<input type="text" class="widefat" name="%s" id="%s" value="%s" />', $name, $id, $value );
 
 	}
 
+	/**
+	 * Builds the field name attribute using the object $_prefix variable.
+	 *
+	 * @access private
+	 * @param string $name
+	 * @return string
+	 */
 	private function _get_field_name( $name ){
 
 		return sprintf( '%s[%s]', $this->_prefix, $name );
 
 	}
 
+	/**
+	 * Builds the field ID attribute using the object $_prefix variable.
+	 *
+	 * @access private
+	 * @param string $name
+	 * @return string
+	 */
 	private function _get_field_id( $name ){
 
 		return sprintf( '%s_%s', $this->_prefix, $name );
 
 	}
 
+	/**
+	 * Gets the current value for the field.
+	 *
+	 * @access private
+	 * @param string $name
+	 * @return string
+	 */
 	private function _get_field_value( $name ){
 
 		$value = empty( $this->_meta_value[$name] ) ? '' : $this->_meta_value[$name];

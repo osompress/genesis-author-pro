@@ -55,14 +55,23 @@ class Genesis_Author_Pro {
 		}
 
 	}
-	
+
+	/**
+	 * Action added on the dynamic load-edit-tags.php hook.
+	 * Optionally enqueues the admin scripts if the current taxonomy matches the book-author value.
+	 *
+	 * @access public
+	 * @static
+	 * @return void
+	 */
 	static public function maybe_enqueue_scripts(){
-		//taxonomy=book-authors
-		
-		if( isset( $_GET['taxonomy'] ) && 'book-authors' === $_GET['taxonomy'] ){
+
+		global $Genesis_Author_Pro_CPT;
+
+		if( isset( $_GET['taxonomy'] ) && $Genesis_Author_Pro_CPT->author === $_GET['taxonomy'] ){
 			add_action( 'admin_enqueue_scripts' , array( 'Genesis_Author_Pro_Book_Meta', 'enqueue_scripts'  ) );
 		}
-		
+
 	}
 
 	/**
