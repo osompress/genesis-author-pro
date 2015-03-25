@@ -126,13 +126,14 @@ class Genesis_Author_Pro_CPT {
 				'publicly_queryable' => true,
 				'show_ui'            => true,
 				'show_in_menu'       => true,
+				'menu_icon'          => 'dashicons-book-alt',
 				'query_var'          => true,
 				'rewrite'            => array( 'slug' => 'book' , 'feeds' => true, 'with_front' => true, ),
 				'capability_type'    => 'post',
-				'has_archive'        => 'library',
+				'has_archive'        => 'books',
 				'hierarchical'       => false,
-				'supports'           => array( 'title', 'editor', 'front-end-editor', 'excerpt', 'thumbnail', 'page-attributes', 'comments', 'author', 'custom-fields', 'genesis-entry-meta' ),
-				'menu_position'      => '5.55558',
+				'supports'           => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'genesis-seo', 'genesis-scripts',  'genesis-cpt-archives-settings' ),
+				'menu_position'      => 22,
 			) );
 
 		register_post_type( $this->post_type, $args );

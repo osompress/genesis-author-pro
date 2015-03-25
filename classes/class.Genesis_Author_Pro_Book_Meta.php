@@ -55,9 +55,9 @@ class Genesis_Author_Pro_Book_Meta {
 	 */
 	function __construct(){
 
-		add_action( 'admin_enqueue_scripts' , array( $this, 'enqueue_scripts'  ) );
-		add_action( 'add_meta_boxes'        , array( $this, 'add_meta_boxes'   ) );
-		add_filter( 'post_updated_messages' , array( $this, 'updated_messages' ) );
+		add_action( 'admin_enqueue_scripts' , array( $this, 'enqueue_scripts'  )    );
+		add_action( 'add_meta_boxes'        , array( $this, 'add_meta_boxes'   ), 1 );
+		add_filter( 'post_updated_messages' , array( $this, 'updated_messages' )    );
 
 	}
 

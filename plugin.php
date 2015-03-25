@@ -46,7 +46,7 @@ define( 'GENESIS_AUTHOR_PRO_FUNCTIONS_DIR', dirname(        __FILE__ ) . '/funct
 define( 'GENESIS_AUTHOR_PRO_TEMPLATES_DIR', dirname(        __FILE__ ) . '/templates/' );
 define( 'GENESIS_AUTHOR_PRO_RESOURCES_URL', plugin_dir_url( __FILE__ ) . 'resources/'  );
 
-add_action( 'init', array( 'Genesis_Author_Pro_CPT', 'init' ) );
+add_action( 'after_setup_theme', array( 'Genesis_Author_Pro_CPT', 'init' ), 1 );
 
 add_action( 'genesis_init', 'genesis_author_pro_init' );
 /**
@@ -58,6 +58,8 @@ add_action( 'genesis_init', 'genesis_author_pro_init' );
  * @return void
  */
 function genesis_author_pro_init(){
+	
+	$archive_page_hook = sprintf( 'load-%1$s_page_genesis-cpt-archive-%1$s', 'books' );
 
 	add_filter( 'template_include', array( 'Genesis_Author_Pro_Template', 'maybe_include_template' ) );
 
@@ -65,6 +67,7 @@ function genesis_author_pro_init(){
 	add_action( 'load-post.php'             , array( 'Genesis_Author_Pro'    , 'maybe_do_book_meta'    )        );
 	add_action( 'load-post-new.php'         , array( 'Genesis_Author_Pro'    , 'maybe_do_book_meta'    )        );
 	add_action( 'load-edit-tags.php'        , array( 'Genesis_Author_Pro'    , 'maybe_enqueue_scripts' )        );
+	add_action( $archive_page_hook          , array( 'Genesis_Author_Pro'    , 'maybe_enqueue_scripts' )        );
 	add_filter( 'bulk_post_updated_messages', array( 'Genesis_Author_Pro'    , 'bulk_updated_messages' ), 10, 2 );
 	add_action( 'save_post'                 , array( 'Genesis_Author_Pro'    , 'maybe_do_save'         ), 10, 2 );
 

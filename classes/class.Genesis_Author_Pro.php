@@ -68,7 +68,10 @@ class Genesis_Author_Pro {
 
 		global $Genesis_Author_Pro_CPT;
 
-		if( isset( $_GET['taxonomy'] ) && $Genesis_Author_Pro_CPT->author === $_GET['taxonomy'] ){
+		if( 
+			( isset( $_GET['taxonomy' ] ) && $Genesis_Author_Pro_CPT->author    === $_GET['taxonomy' ] ) ||
+			( isset( $_GET['post_type'] ) && $Genesis_Author_Pro_CPT->post_type === $_GET['post_type'] )
+		){
 			add_action( 'admin_enqueue_scripts' , array( 'Genesis_Author_Pro_Book_Meta', 'enqueue_scripts'  ) );
 		}
 

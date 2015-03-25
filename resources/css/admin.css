@@ -1,4 +1,6 @@
 #newbook-authors_parent,
-.taxonomy-book-authors .term-parent-wrap {
+.taxonomy-book-authors .term-parent-wrap,
+#genesis-cpt-archives-layout-settings,
+label[for="genesis-cpt-archives-layout-settings-hide"] {
 	display: none !important;
 }
