@@ -76,6 +76,20 @@ class Genesis_Author_Pro {
 		}
 
 	}
+	
+	/**
+	 * Action on the widgets_init hook.
+	 * Registered the Featured Book Widget
+	 * 
+	 * @access public
+	 * @static
+	 * @return void
+	 */
+	static public function widgets_init() {
+	
+		register_widget( 'Genesis_Author_Pro_Widget' );
+	
+	}
 
 	/**
 	 * Filter our bulk updated/trashed messages so that it uses "book(s)" rather than "post".

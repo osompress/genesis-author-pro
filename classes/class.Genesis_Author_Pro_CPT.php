@@ -131,7 +131,7 @@ class Genesis_Author_Pro_CPT {
 				'rewrite'            => array( 'slug' => 'book' , 'feeds' => true, 'with_front' => true, ),
 				'capability_type'    => 'post',
 				'has_archive'        => 'books',
-				'hierarchical'       => false,
+				'hierarchical'       => true,
 				'supports'           => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'genesis-seo', 'genesis-scripts',  'genesis-cpt-archives-settings' ),
 				'menu_position'      => 22,
 			) );

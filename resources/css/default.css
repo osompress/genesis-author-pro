@@ -17,39 +17,6 @@
 	margin-left:0;
 }
 
-/* ## Single
---------------------------------------------- */
-.single.genesis-author-pro .book-image {
-	float:right;
-	margin-left:40px;
-}
-
-/* ## Image
---------------------------------------------- */
-.genesis-author-pro-book .author-pro-featured-image {
-	position:relative;
-	overflow:hidden;
-}
-
-.book-featured-text-banner {
-	-moz-transform:rotate(45deg);
-	-ms-transform:rotate(45deg);
-	-o-transform:rotate(45deg);
-	-webkit-transform:rotate(45deg);
-	background-color:#d23836;
-	color:#fff;
-	font-size:9px;
-	font-weight:700;
-	letter-spacing:2px;
-	padding:6px 12px;
-	position:absolute;
-	right:-35px;
-	text-align:center;
-	text-transform:uppercase;
-	top:35px;
-	width:160px;
-}
-
 /* ## Book Details
 --------------------------------------------- */
 .book-price {

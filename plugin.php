@@ -24,12 +24,15 @@ if ( !defined( 'ABSPATH' ) ) {
 function gapro_autoloader($class) {
 
 	$classes = array(
-		'Genesis_Author_Pro'            => 'class.Genesis_Author_Pro.php',
-		'Genesis_Author_Pro_Activation' => 'class.Genesis_Author_Pro_Activation.php',
-		'Genesis_Author_Pro_Book_Meta'  => 'class.Genesis_Author_Pro_Book_Meta.php',
-		'Genesis_Author_Pro_CPT'        => 'class.Genesis_Author_Pro_CPT.php',
-		'Genesis_Author_Pro_Save'       => 'class.Genesis_Author_Pro_Save.php',
-		'Genesis_Author_Pro_Template'   => 'class.Genesis_Author_Pro_Template.php',
+		'Genesis_Author_Pro'               => 'class.Genesis_Author_Pro.php',
+		'Genesis_Author_Pro_Activation'    => 'class.Genesis_Author_Pro_Activation.php',
+		'Genesis_Author_Pro_Book_Meta'     => 'class.Genesis_Author_Pro_Book_Meta.php',
+		'Genesis_Author_Pro_CPT'           => 'class.Genesis_Author_Pro_CPT.php',
+		'Genesis_Author_Pro_Save'          => 'class.Genesis_Author_Pro_Save.php',
+		'Genesis_Author_Pro_Template'      => 'class.Genesis_Author_Pro_Template.php',
+		'Genesis_Author_Pro_Widget'        => 'class.Genesis_Author_Pro_Widget.php',
+		'Genesis_Author_Pro_Widget_Admin'  => 'class.Genesis_Author_Pro_Widget_Admin.php',
+		'Genesis_Author_Pro_Widget_Output' => 'class.Genesis_Author_Pro_Widget_Output.php',
 	);
 
 	if( isset( $classes[$class] ) ) {
@@ -70,5 +73,6 @@ function genesis_author_pro_init(){
 	add_action( $archive_page_hook          , array( 'Genesis_Author_Pro'    , 'maybe_enqueue_scripts' )        );
 	add_filter( 'bulk_post_updated_messages', array( 'Genesis_Author_Pro'    , 'bulk_updated_messages' ), 10, 2 );
 	add_action( 'save_post'                 , array( 'Genesis_Author_Pro'    , 'maybe_do_save'         ), 10, 2 );
+	add_action( 'widgets_init'              , array( 'Genesis_Author_Pro'    , 'widgets_init'          )        );
 
 }
