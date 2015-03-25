@@ -128,6 +128,12 @@ class Genesis_Author_Pro_Book_Meta {
 				'type'        => 'text',
 			),
 			array(
+				'name'        => 'price',
+				'label'       => __( 'Price', 'genesis-author-pro' ),
+				'description' => '',
+				'type'        => 'text',
+			),
+			array(
 				'name'        => 'isbn',
 				'label'       => __( 'ISBN', 'genesis-author-pro' ),
 				'description' => __( 'Will display International Standard Book Number for this book if provided.', 'genesis-author-pro' ),

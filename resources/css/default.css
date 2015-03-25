@@ -46,3 +46,21 @@
     top: 35px;
     width: 160px;
 }
+
+.book-price {
+	text-align: center;
+	display: block;
+	margin: 0 0 35px;
+	font-size: 30px;
+}
+
+.book-details-meta .label {
+	font-weight: bold;
+}
+
+.button-book {
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin: 10px auto;
+}

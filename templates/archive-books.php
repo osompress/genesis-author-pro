@@ -7,11 +7,9 @@
  * @subpackage Template
  */
 
-//* Remove the breadcrumb navigation
-remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
 
 add_action( 'wp_enqueue_scripts', 'genesis_author_pro_load_default_styles' );
-add_action( 'genesis_loop', 'genesis_author_pro_setup_loop', 9 );
+add_action( 'genesis_loop', 'genesis_author_pro_setup_archive_loop', 9 );
 
 //* Add author_pro body class to the head
 add_filter( 'body_class', 'genesis_author_pro_add_body_class'   );

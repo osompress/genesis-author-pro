@@ -8,11 +8,10 @@
  */
 
 add_action( 'wp_enqueue_scripts', 'genesis_author_pro_load_default_styles' );
+add_action( 'genesis_loop', 'genesis_author_pro_setup_single_loop', 9 );
 
-//* Remove the breadcrumb navigation
-remove_action( 'genesis_before_loop' , 'genesis_do_breadcrumbs'          );
-remove_action( 'genesis_entry_header', 'genesis_post_info'           , 5 );
-remove_action( 'genesis_after_entry' , 'genesis_do_author_box_single', 8 );
-remove_action( 'genesis_entry_footer', 'genesis_post_meta'               );
+//* Add author_pro body class to the head
+add_filter( 'body_class', 'genesis_author_pro_add_body_class'   );
+add_filter('post_class' , 'genesis_author_pro_custom_post_class');
 
 genesis();

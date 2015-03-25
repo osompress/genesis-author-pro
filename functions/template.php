@@ -15,9 +15,11 @@
  * @param string $key
  * @return mixed boolean/string
  */
-function genesis_author_pro_get_book_meta( $key ){
+function genesis_author_pro_get_book_meta( $key, $post_id = '' ){
+	
+	$post_id =  $post_id ? $post_id : get_the_ID();
 
-	$genesis_author_pro_book_meta = genesis_get_custom_field( '_genesis_author_pro' );
+	$genesis_author_pro_book_meta = get_post_meta( $post_id, '_genesis_author_pro', true );
 
 	if( empty( $genesis_author_pro_book_meta[$key] ) ){
 		return false;
@@ -50,36 +52,15 @@ function genesis_author_pro_book_meta( $key ){
 }
 
 /**
- * Removes action from all provided hooks.
- * This checks to see if the hook has the action
- * then builds a remove_action() with the $hook, $action, and returned $priority value.
- *
+ * Removes all the actions on the entry hooks.
+ * 
  * @access public
- * @param string $action
- * @param array $hooks (default: array())
  * @return void
  */
-function genesis_author_pro_remove_actions( $action, $hooks = array() ) {
-
-	foreach ( $hooks as $hook ) {
-		if ( $priority = has_action( $hook, $action ) ) {
-			remove_action( $hook, $action, $priority );
-		}
-	}
-
-}
-
-/**
- * Removes action from all entry hooks.
- *
- * @uses genesis_author_pro_remove_actions()
- * @access public
- * @param string $action
- * @return void
- */
-function genesis_author_pro_remove_entry_actions( $action ) {
-
+function genesis_author_pro_remove_all_entry_actions(){
+	
 	$hooks = array(
+		'genesis_before_entry',
 		'genesis_entry_header',
 		'genesis_before_entry_content',
 		'genesis_entry_content',
@@ -88,8 +69,10 @@ function genesis_author_pro_remove_entry_actions( $action ) {
 		'genesis_after_entry',
 	);
 
-	genesis_author_pro_remove_actions( $action, $hooks );
-
+	foreach( $hooks as $hook ){
+		remove_all_actions( $hook );
+	}
+	
 }
 
 /**
@@ -114,32 +97,42 @@ function genesis_author_pro_load_default_styles() {
 }
 
 /**
- * Remove actions on before entry and setup the author_pro entry actions.
+ * Removes all entry actions and setup the author_pro archive entry actions.
  *
  * @access public
  * @return void
  */
-function genesis_author_pro_setup_loop(){
-
-	$hooks = array(
-		'genesis_before_entry',
-		'genesis_entry_header',
-		'genesis_before_entry_content',
-		'genesis_entry_content',
-		'genesis_after_entry_content',
-		'genesis_entry_footer',
-		'genesis_after_entry',
-	);
-
-	foreach( $hooks as $hook ){
-		remove_all_actions( $hook );
-	}
+function genesis_author_pro_setup_archive_loop(){
+	
+	//remove all actions from the entry section to setup the loop
+	genesis_author_pro_remove_all_entry_actions();
 
 	add_action( 'genesis_entry_content'      , 'genesis_author_pro_grid'               );
 	add_action( 'genesis_after_entry_content', 'genesis_entry_header_markup_open' , 5  );
 	add_action( 'genesis_after_entry_content', 'genesis_do_post_title'                 );
 	add_action( 'genesis_after_entry_content', 'genesis_author_pro_do_by_line'    , 12 );
 	add_action( 'genesis_after_entry_content', 'genesis_entry_header_markup_close', 15 );
+
+}
+
+/**
+ * Removes all entry actions and setup the author_pro archive single actions.
+ *
+ * @access public
+ * @return void
+ */
+function genesis_author_pro_setup_single_loop(){
+	
+	//remove all actions from the entry section to setup the loop
+	genesis_author_pro_remove_all_entry_actions();
+
+	
+	add_action( 'genesis_before_entry_content', 'genesis_entry_header_markup_open' , 5  );
+	add_action( 'genesis_before_entry_content', 'genesis_do_post_title'                 );
+	add_action( 'genesis_before_entry_content', 'genesis_author_pro_do_by_line'    , 12 );
+	add_action( 'genesis_before_entry_content', 'genesis_entry_header_markup_close', 15 );
+	add_action( 'genesis_entry_content'       , 'genesis_author_pro_single_content'     );
+	add_action( 'genesis_after_entry_content' , 'genesis_author_pro_book_footer'        );
 
 }
 
@@ -193,6 +186,83 @@ function genesis_author_pro_grid() {
 }
 
 /**
+ * Outputs the single content markup.
+ * 
+ * @uses genesis_author_pro_book_details()
+ * @access public
+ * @return void
+ */
+function genesis_author_pro_single_content(){
+	
+	echo '<div class="two-thirds first genesis-author-pro-book-description">';
+		the_content();
+	echo '</div>';
+	
+	echo '<div class="one-third genesis-author-pro-book-details">';
+		genesis_author_pro_book_details();
+	echo '</div>';
+	
+	echo '<br class="clear" />';
+	
+}
+
+function genesis_author_pro_get_book_details( $post_id = '' ){
+	
+	$book_meta = array();
+	
+	$book_meta[] = ( $opt = genesis_author_pro_get_formated_meta( __( 'Publisher', 'genesis-author-pro' ), 'publisher', $post_id ) ) ? sprintf( '<li>%s</li>', $opt ) : '';
+	$book_meta[] = ( $opt = genesis_author_pro_get_formated_meta( __( 'Editor'   , 'genesis-author-pro' ), 'editor'   , $post_id ) ) ? sprintf( '<li>%s</li>', $opt ) : '';
+	$book_meta[] = ( $opt = genesis_author_pro_get_formated_meta( __( 'Edition'  , 'genesis-author-pro' ), 'edition'  , $post_id ) ) ? sprintf( '<li>%s</li>', $opt ) : '';
+	$book_meta[] = ( $opt = genesis_author_pro_get_formated_meta( __( 'ISBN'     , 'genesis-author-pro' ), 'isbn'     , $post_id ) ) ? sprintf( '<li>%s</li>', $opt ) : '';
+	
+	$book_meta[] = ( $opt = genesis_author_pro_get_publication_date( $post_id ) ) ? sprintf( '<li>%s</li>', $opt ) : '';
+	
+	foreach( $book_meta as $key => $value ){
+		if( empty( $value ) ){
+			unset( $book_meta[$key] );
+		}
+	}
+	
+	$details = '<div class="book-details">';
+	
+	$details .= genesis_author_pro_get_book_image( $post_id );
+	
+	$details .= genesis_author_pro_get_price( $post_id );
+	
+	if( ! empty( $book_meta ) ){
+		
+		$details .= sprintf( '<ul class="book-details-meta">%s</ul>', implode( '', $book_meta ) );
+		
+	}
+	
+	$details .= genesis_author_pro_get_buttons( $post_id );
+	
+	$details .= '</div>';
+	
+	return $details;
+	
+}
+
+function genesis_author_pro_book_details( $post_id = '' ) {
+	
+	echo genesis_author_pro_get_book_details( $post_id );
+	
+}
+
+function genesis_author_pro_get_book_image( $post_id = '' ){
+	
+	if ( $image = genesis_get_image( array( 'format' => 'url', 'size' => 'author_pro_archive', 'post_id' => $post_id ) ) ) {
+		
+		$banner = ( $text = genesis_author_pro_get_book_meta( 'featured_text' ) ) ? sprintf( '<span class="book-featured-text-banner">%s</span>', $text ) : '';
+		
+		$image = sprintf( '<div class="author-pro-featured-image"><img src="%s" alt="%s" />%s</div>', $image, the_title_attribute( 'echo=0' ), $banner );
+
+	}
+	
+	return $image;
+}
+
+/**
  * Outputs the "by" with a link to the Author Archive.
  *
  * @access public
@@ -224,12 +294,12 @@ function genesis_author_pro_do_by_line(){
 	if( ! empty( $authors ) ){
 		printf(
 			'<div class="book-by-line">%s%s</div>',
-			__( 'By ', 'genesis_author-pro' ),
+			__( 'By ', 'genesis-author-pro' ),
 			join(
 				__( ' and ', 'genesis-author-pro' ),
 				array_filter(
 					array_merge(
-						array( join( ', ', array_slice( $authors, 0, -1 ) ) ),
+						array( join( __( ', ', 'genesis-author-pro' ), array_slice( $authors, 0, -1 ) ) ),
 						array_slice( $authors, -1 )
 					)
 				)
@@ -237,4 +307,95 @@ function genesis_author_pro_do_by_line(){
 		);
 	}
 
+}
+
+/**
+ * Outputs the entry <footer> for the book.
+ * Includes Series and Tag terms
+ * 
+ * @access public
+ * @return void
+ */
+function genesis_author_pro_book_footer() {
+	
+	global $Genesis_Author_Pro_CPT;
+	
+	$footer_meta = do_shortcode( apply_filters( 'genesis_author_pro_footer_meta', sprintf( 
+		'[post_terms taxonomy="%s" before="%s"][post_terms taxonomy="%s" before=" %s"]',
+		$Genesis_Author_Pro_CPT->series,
+		__( 'Series: ', 'genesis-author-pro'),
+		$Genesis_Author_Pro_CPT->tag,
+		__( 'Tagged with: ', 'genesis-author-pro' )
+	) ) );
+	
+	if( $footer_meta ){
+		printf( '<footer class="entry-footer"><p class="entry-meta">%s</p></footer>', $footer_meta );
+	}
+	
+}
+
+function genesis_author_pro_format_meta( $label, $meta, $class ){
+	
+	return sprintf( 
+		'<span class="genesis-author-pro-meta-detail %s"><span class="label">%s </span><span class="meta">%s</span></span>',
+		$class,
+		$label,
+		$meta 
+	);
+	
+}
+
+function genesis_author_pro_get_formated_meta( $label, $key, $post_id = '' ){
+
+	$meta  = genesis_author_pro_get_book_meta( $key, $post_id );
+	$class = $key;
+	
+	return empty( $meta ) ? false : genesis_author_pro_format_meta( $label, $meta, $class );
+	
+}
+
+function genesis_author_pro_get_price( $post_id = '' ){
+	
+	$meta  = genesis_author_pro_get_book_meta( 'price', $post_id );
+	
+	return empty( $meta ) ? false : sprintf( '<span class="book-price">%s</span>', $meta );
+	
+}
+
+function genesis_author_pro_get_publication_date( $post_id = '' ){
+	
+	$key   = 'publication_date';
+	$meta  = genesis_author_pro_get_book_meta( $key, $post_id );
+	$class = $key; 
+	
+	if( empty( $meta ) ){
+		return false;
+	}
+	
+	$label = time() < $meta ? __( 'Available', 'genesis-author-pro' ) : __( 'Published', 'genesis-author-pro' );
+	
+	return genesis_author_pro_format_meta( $label, date_i18n( get_option( 'date_format' ), $meta ), $class );
+	
+}
+
+function genesis_author_pro_get_buttons( $post_id = '' ) {
+	
+	$buttons = array( 'button_1', 'button_2', 'button_3' );
+	$values  = array();
+	
+	foreach( $buttons as $button ){
+		
+		 $uri  = genesis_author_pro_get_book_meta( $button . '_uri' , $post_id );
+		 $text = genesis_author_pro_get_book_meta( $button . '_text', $post_id );
+		 
+		 if( empty( $uri ) || empty( $text ) ){
+			 continue;
+		 }
+		 
+		 $values[] = sprintf( '<a href="%s" class="button button-book">%s</a>', $uri, $text );
+		 
+	}
+	
+	return empty( $values ) ? false : implode( '', $values );
+	
 }
