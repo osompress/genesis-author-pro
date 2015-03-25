@@ -64,6 +64,7 @@ function genesis_author_pro_init(){
 	add_action( 'after_setup_theme'         , array( 'Genesis_Author_Pro_CPT', 'maybe_add_image_size'  )        );
 	add_action( 'load-post.php'             , array( 'Genesis_Author_Pro'    , 'maybe_do_book_meta'    )        );
 	add_action( 'load-post-new.php'         , array( 'Genesis_Author_Pro'    , 'maybe_do_book_meta'    )        );
+	add_action( 'load-edit-tags.php'        , array( 'Genesis_Author_Pro'    , 'maybe_enqueue_scripts' )        );
 	add_filter( 'bulk_post_updated_messages', array( 'Genesis_Author_Pro'    , 'bulk_updated_messages' ), 10, 2 );
 	add_action( 'save_post'                 , array( 'Genesis_Author_Pro'    , 'maybe_do_save'         ), 10, 2 );
 

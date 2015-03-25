@@ -55,6 +55,15 @@ class Genesis_Author_Pro {
 		}
 
 	}
+	
+	static public function maybe_enqueue_scripts(){
+		//taxonomy=book-authors
+		
+		if( isset( $_GET['taxonomy'] ) && 'book-authors' === $_GET['taxonomy'] ){
+			add_action( 'admin_enqueue_scripts' , array( 'Genesis_Author_Pro_Book_Meta', 'enqueue_scripts'  ) );
+		}
+		
+	}
 
 	/**
 	 * Filter our bulk updated/trashed messages so that it uses "book(s)" rather than "post".

@@ -1,0 +1,4 @@
+#newbook-authors_parent,
+.taxonomy-book-authors .term-parent-wrap {
+	display: none !important;
+}
