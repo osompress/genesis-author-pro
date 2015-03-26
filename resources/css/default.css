@@ -1,0 +1,38 @@
+/* ## Archives
+--------------------------------------------- */
+.archive.genesis-author-pro .content {
+	padding:80px 80px 40px;
+}
+
+.archive.genesis-author-pro .content .entry {
+	float:left;
+	margin:0 0 40px 2.5641025641026%;
+	padding:0;
+	text-align:center;
+	width:31.623931623932%;
+}
+
+.archive.genesis-author-pro .content .entry:nth-of-type(3n+1) {
+	clear:both;
+	margin-left:0;
+}
+
+/* ## Book Details
+--------------------------------------------- */
+.book-price {
+	text-align:center;
+	display:block;
+	margin:0 0 35px;
+	font-size:30px;
+}
+
+.book-details-meta .label {
+	font-weight:700;
+}
+
+.button-book {
+	display:block;
+	width:100%;
+	text-align:center;
+	margin:10px auto;
+}
