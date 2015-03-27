@@ -194,12 +194,12 @@ function genesis_author_pro_grid() {
  */
 function genesis_author_pro_single_content(){
 
-	echo '<div class="two-thirds first genesis-author-pro-book-description">';
-	the_content();
-	echo '</div>';
-
 	echo '<div class="one-third genesis-author-pro-book-details">';
 	genesis_author_pro_book_details();
+	echo '</div>';
+
+	echo '<div class="two-thirds first genesis-author-pro-book-description">';
+	the_content();
 	echo '</div>';
 
 	echo '<br class="clear" />';
