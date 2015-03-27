@@ -274,9 +274,9 @@ function genesis_author_pro_book_details( $post_id = '' ) {
  * @param string $post_id (default: '')
  * @return string
  */
-function genesis_author_pro_get_book_image( $post_id = '' ){
+function genesis_author_pro_get_book_image(){
 
-	if ( $image = genesis_get_image( array( 'format' => 'url', 'size' => 'author_pro_archive', 'post_id' => $post_id ) ) ) {
+	if ( $image = genesis_get_image( array( 'format' => 'url', 'size' => 'author_pro_archive' ) ) ) {
 
 		$banner = ( $text = genesis_author_pro_get_book_meta( 'featured_text' ) ) ? sprintf( '<span class="book-featured-text-banner">%s</span>', $text ) : '';
 
