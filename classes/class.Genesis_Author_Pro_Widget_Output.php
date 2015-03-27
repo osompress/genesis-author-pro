@@ -66,9 +66,9 @@ class Genesis_Author_Pro_Widget_Output {
 
 			if ( $this->_instance['show_image'] && $image ) {
 				
-				$banner = ( $text = genesis_author_pro_get_book_meta( 'featured_text' ) ) ? sprintf( '<span class="book-featured-text-banner">%s</span>', $text ) : '';
+				$banner = ( $text = genesis_author_pro_get_book_meta( 'featured_text' ) ) ? sprintf( '<div class="book-featured-text-banner">%s</div>', $text ) : '';
 				
-				printf( '<div class="author-pro-featured-image %s"><a href="%s" title="%s">%s</a>%s</div>', esc_attr( $this->_instance['image_alignment'] ), get_permalink(), the_title_attribute( 'echo=0' ), $image, $banner );
+				printf( '<div class="author-pro-featured-image image-%s"><a class="%s" href="%s" title="%s">%s %s</a></div>', esc_attr( $this->_instance['image_alignment'] ), esc_attr( $this->_instance['image_alignment'] ), get_permalink(), the_title_attribute( 'echo=0' ), $image, $banner );
 				
 			}
 
