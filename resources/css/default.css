@@ -3,8 +3,7 @@
 
 .archive.genesis-author-pro .content .entry {
 	background-image: none;
-	border-width: 0;
-	box-shadow: none;
+	border-width: 0;	
 	float: left;
 	margin: 0 0 40px 2.5641025641026%;
 	padding: 15px;
@@ -17,8 +16,17 @@
 	margin-left: 0;
 }
 
+.archive.genesis-author-pro .content  .entry-header {
+	border-width: 0;
+	margin: 0;
+	padding: 0;
+}
+
 .archive.genesis-author-pro .content .entry-header .entry-title {
+	border-width: 0;
 	font-size: 20px;
+	margin-left: auto;
+	padding: 0;
 	word-wrap: break-word;
 }
 
@@ -29,7 +37,7 @@
 .author-pro-featured-image,
 .author-pro-featured-image img {
 	display: block;
-	margin: 0 auto 15px;
+	margin: 0 auto 20px;
 }
 
 
