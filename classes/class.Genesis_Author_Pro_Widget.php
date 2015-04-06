@@ -22,12 +22,12 @@ class Genesis_Author_Pro_Widget extends WP_Widget {
 
 		$this->defaults = array(
 			'title'              => '',
-			'show_author'        => 1,
+			'show_author'        => '',
 			'book_id'            => '',
 			'show_image'         => 0,
 			'image_alignment'    => '',
 			'image_size'         => '',
-			'show_featured_text' => 1,
+			'show_featured_text' => '',
 			'show_title'         => 0,
 			'show_content'       => 0,
 			'content_limit'      => '',

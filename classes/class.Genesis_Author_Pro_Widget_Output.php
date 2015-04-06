@@ -150,7 +150,7 @@ class Genesis_Author_Pro_Widget_Output {
 		echo empty( $this->_instance['show_price'] ) ? '' : sprintf( '<p>%s</p>', genesis_author_pro_get_price() );
 
 		//show the link to view the single book page if selected
-		echo empty( $this->_instance['more_link'] )  ? '' : sprintf( '<p><a href="%s" class="button">%s</a></p>', get_permalink(), $this->_instance['more_link'] );
+		echo empty( $this->_instance['more_text'] )  ? '' : sprintf( '<p><a href="%s" class="button">%s</a></p>', get_permalink(), $this->_instance['more_text'] );
 
 		genesis_markup( array(
 				'html5' => '</article>',
