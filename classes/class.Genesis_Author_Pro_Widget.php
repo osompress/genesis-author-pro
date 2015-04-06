@@ -26,7 +26,7 @@ class Genesis_Author_Pro_Widget extends WP_Widget {
 			'book_id'            => '',
 			'show_image'         => 0,
 			'image_alignment'    => '',
-			'image_size'         => '',
+			'image_size'         => 'author-pro-image',
 			'show_featured_text' => '',
 			'show_title'         => 0,
 			'show_content'       => 0,

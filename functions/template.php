@@ -175,7 +175,7 @@ function genesis_author_pro_custom_post_class( $classes ) {
  */
 function genesis_author_pro_grid() {
 
-	if ( $image = genesis_get_image( 'format=url&size=author_pro_archive' ) ) {
+	if ( $image = genesis_get_image( 'format=url&size=author-pro-image' ) ) {
 
 		$banner = ( $text = genesis_author_pro_get_book_meta( 'featured_text' ) ) ? sprintf( '<span class="book-featured-text-banner">%s</span>', $text ) : '';
 

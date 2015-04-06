@@ -68,9 +68,9 @@ class Genesis_Author_Pro_CPT {
 
 		global $_wp_additional_image_sizes;
 
-		if( ! isset( $_wp_additional_image_sizes['author_pro_archive'] ) ) {
+		if( ! isset( $_wp_additional_image_sizes['author-pro-image'] ) ) {
 
-			add_image_size( 'author_pro_archive', 360, 570, TRUE );
+			add_image_size( 'author-pro-image', 360, 570, TRUE );
 
 		}
 
