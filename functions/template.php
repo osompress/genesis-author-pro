@@ -307,7 +307,7 @@ function genesis_author_pro_do_by_line(){
 
 	foreach( $terms as $term ){
 
-		$authors[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term ) ), $term->name );
+		$authors[] = sprintf( '<a class="book-author-link" href="%s">%s</a>', esc_url( get_term_link( $term ) ), $term->name );
 
 	}
 
@@ -318,7 +318,7 @@ function genesis_author_pro_do_by_line(){
 	*/
 	if( ! empty( $authors ) ){
 		printf(
-			'<div class="book-by-line">%s%s</div>',
+			'<p class="book-author">%s%s</p>',
 			__( 'By ', 'genesis-author-pro' ),
 			join(
 				__( ' and ', 'genesis-author-pro' ),
