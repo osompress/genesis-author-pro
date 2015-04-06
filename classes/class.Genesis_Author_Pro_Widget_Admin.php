@@ -125,6 +125,11 @@ class Genesis_Author_Pro_Widget_Admin {
 				<option value="aligncenter" <?php selected( 'aligncenter', $this->_instance['image_alignment'] ); ?>><?php _e( 'Center', 'genesis-author-pro' ); ?></option>
 			</select>
 		</p>
+
+		<p>
+			<input id="<?php echo $this->_widget_object->get_field_id( 'show_featured_text' ); ?>" type="checkbox" name="<?php echo esc_attr( $this->_widget_object->get_field_name( 'show_featured_text' ) ); ?>" value="1"<?php checked( $this->_instance['show_featured_text'] ); ?> />
+			<label for="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_featured_text' ) ); ?>"><?php _e( 'Show Featured Text With Image', 'genesis' ); ?></label>
+		</p>
 		<?php
 	}
 
@@ -138,21 +143,36 @@ class Genesis_Author_Pro_Widget_Admin {
 ?>
 		<p>
 			<input id="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_title' ) ); ?>" type="checkbox" name="<?php echo esc_attr( $this->_widget_object->get_field_name( 'show_title' ) ); ?>" value="1"<?php checked( $this->_instance['show_title'] ); ?> />
-			<label for="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_title' ) ); ?>"><?php _e( 'Show Page Title', 'genesis-author-pro' ); ?></label>
+			<label for="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_title' ) ); ?>"><?php _e( 'Show Book Title', 'genesis-author-pro' ); ?></label>
 		</p>
 
 		<p>
-			<input id="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_content' ) ); ?>" type="checkbox" name="<?php echo esc_attr( $this->_widget_object->get_field_name( 'show_content' ) ); ?>" value="1"<?php checked( $this->_instance['show_content'] ); ?> />
-			<label for="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_content' ) ); ?>"><?php _e( 'Show Page Content', 'genesis-author-pro' ); ?></label>
+			<input id="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_author' ) ); ?>" type="checkbox" name="<?php echo esc_attr( $this->_widget_object->get_field_name( 'show_author' ) ); ?>" value="1"<?php checked( $this->_instance['show_author'] ); ?> />
+			<label for="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_author' ) ); ?>"><?php _e( 'Show Book Author', 'genesis-author-pro' ); ?></label>
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr( $this->_widget_object->get_field_id( 'content_limit' ) ); ?>"><?php _e( 'Content Character Limit', 'genesis-author-pro' ); ?>:</label>
-			<input type="text" id="<?php echo esc_attr( $this->_widget_object->get_field_id( 'content_limit' ) ); ?>" name="<?php echo esc_attr( $this->_widget_object->get_field_name( 'content_limit' ) ); ?>" value="<?php echo esc_attr( $this->_instance['content_limit'] ); ?>" size="3" />
+			<label for="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_content' ) ); ?>"><?php _e( 'Content Type', 'genesis-author-pro' ); ?>:</label>
+			<select id="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_content' ) ); ?>" name="<?php echo esc_attr( $this->_widget_object->get_field_name( 'show_content' ) ); ?>">
+				<option value="content" <?php selected( 'content', $this->_instance['show_content'] ); ?>><?php _e( 'Show Content', 'genesis-author-pro' ); ?></option>
+				<option value="excerpt" <?php selected( 'excerpt', $this->_instance['show_content'] ); ?>><?php _e( 'Show Excerpt', 'genesis-author-pro' ); ?></option>
+				<option value="content-limit" <?php selected( 'content-limit', $this->_instance['show_content'] ); ?>><?php _e( 'Show Content Limit', 'genesis-author-pro' ); ?></option>
+				<option value="" <?php selected( '', $this->_instance['show_content'] ); ?>><?php _e( 'No Content', 'genesis-author-pro' ); ?></option>
+			</select>
+			<br />
+			<label for="<?php echo esc_attr( $this->_widget_object->get_field_id( 'content_limit' ) ); ?>"><?php _e( 'Limit content to', 'genesis-author-pro' ); ?>
+				<input type="text" id="<?php echo esc_attr( $this->_widget_object->get_field_id( 'content_limit' ) ); ?>" name="<?php echo esc_attr( $this->_widget_object->get_field_name( 'content_limit' ) ); ?>" value="<?php echo esc_attr( intval( $this->_instance['content_limit'] ) ); ?>" size="3" />
+				<?php _e( 'characters', 'genesis-author-pro' ); ?>
+			</label>
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr( $this->_widget_object->get_field_id( 'more_text' ) ); ?>"><?php _e( 'More Text', 'genesis-author-pro' ); ?>:</label>
+			<input id="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_price' ) ); ?>" type="checkbox" name="<?php echo esc_attr( $this->_widget_object->get_field_name( 'show_price' ) ); ?>" value="1"<?php checked( $this->_instance['show_price'] ); ?> />
+			<label for="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_price' ) ); ?>"><?php _e( 'Show Book Price', 'genesis-author-pro' ); ?></label>
+		</p>
+
+		<p>
+			<label for="<?php echo esc_attr( $this->_widget_object->get_field_id( 'more_text' ) ); ?>"><?php _e( 'View Book Text', 'genesis-author-pro' ); ?>:</label>
 			<input type="text" id="<?php echo esc_attr( $this->_widget_object->get_field_id( 'more_text' ) ); ?>" name="<?php echo esc_attr( $this->_widget_object->get_field_name( 'more_text' ) ); ?>" value="<?php echo esc_attr( $this->_instance['more_text'] ); ?>" />
 		</p>
 		<?php

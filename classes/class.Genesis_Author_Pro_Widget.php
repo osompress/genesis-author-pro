@@ -21,15 +21,18 @@ class Genesis_Author_Pro_Widget extends WP_Widget {
 	function __construct() {
 
 		$this->defaults = array(
-			'title'           => '',
-			'book_id'         => '',
-			'show_image'      => 0,
-			'image_alignment' => '',
-			'image_size'      => '',
-			'show_title'      => 0,
-			'show_content'    => 0,
-			'content_limit'   => '',
-			'more_text'       => '',
+			'title'              => '',
+			'show_author'        => 1,
+			'book_id'            => '',
+			'show_image'         => 0,
+			'image_alignment'    => '',
+			'image_size'         => '',
+			'show_featured_text' => 1,
+			'show_title'         => 0,
+			'show_content'       => 0,
+			'content_limit'      => '',
+			'show_price'         => '',
+			'more_text'          => __( 'View Book', 'genesis-author-pro' ),
 		);
 
 		$widget_ops = array(
