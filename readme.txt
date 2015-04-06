@@ -1,4 +1,4 @@
-# Genesis Author Pro
+=== Genesis Author Pro ===
 Contributors: nick_thegeek, dreamwhisper, laurenmancke
 Tags: genesis, authors, books
 Requires at least: 3.9
@@ -9,7 +9,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Adds a book library to any Genesis child theme to tactfully display book details in single and archive views
 
-## Description
+== Description ==
 
 The Genesis Author Pro plugin creates a library which allows you to add books to your site. The books can have custom information added including:
 * Featured Text
@@ -57,19 +57,19 @@ Templates are built into the plugin with default CSS to create the basic layout 
 * taxonomy-book-tags.php
 
 
-## Installation
+== Installation ==
 
 
 1. Upload `genesis-author-pro` directory to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
 
-## Changelog
+== Changelog ==
 
-### 0.9 
+= 0.9 =
 * Initial Public Release
 
-## Upgrade Notice
+== Upgrade Notice ==
 
-### 0.9 
+= 0.9 =
 Initial Public Release
