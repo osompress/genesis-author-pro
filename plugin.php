@@ -6,6 +6,8 @@
   Version: 0.1.0
   Author: copyblogger
   Author URI: http://www.copyblogger.com
+  Text Domain: genesis-author-pro
+  Domain Path /languages/
 
 */
 
@@ -46,10 +48,12 @@ register_activation_hook( __FILE__, array( 'Genesis_Author_Pro_Activation', 'act
 
 define( 'GENESIS_AUTHOR_PRO_CLASSES_DIR'  , dirname(        __FILE__ ) . '/classes/'   );
 define( 'GENESIS_AUTHOR_PRO_FUNCTIONS_DIR', dirname(        __FILE__ ) . '/functions/' );
+define( 'GENESIS_AUTHOR_PRO_LANGUAGES_DIR', dirname(        __FILE__ ) . '/languages/' );
 define( 'GENESIS_AUTHOR_PRO_TEMPLATES_DIR', dirname(        __FILE__ ) . '/templates/' );
 define( 'GENESIS_AUTHOR_PRO_RESOURCES_URL', plugin_dir_url( __FILE__ ) . 'resources/'  );
 
-add_action( 'after_setup_theme', array( 'Genesis_Author_Pro_CPT', 'init' ), 1 );
+add_action( 'after_setup_theme', array( 'Genesis_Author_Pro_CPT', 'init'            ), 1 );
+add_action( 'plugins_loaded'   , array( 'Genesis_Author_Pro'    , 'load_textdomain' )    );
 
 add_action( 'genesis_init', 'genesis_author_pro_init' );
 /**
@@ -61,7 +65,7 @@ add_action( 'genesis_init', 'genesis_author_pro_init' );
  * @return void
  */
 function genesis_author_pro_init(){
-	
+
 	$archive_page_hook = sprintf( 'load-%1$s_page_genesis-cpt-archive-%1$s', 'books' );
 
 	add_filter( 'template_include', array( 'Genesis_Author_Pro_Template', 'maybe_include_template' ) );
