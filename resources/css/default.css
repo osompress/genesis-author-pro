@@ -38,12 +38,12 @@
 .archive.genesis-author-pro .author-pro-featured-image,
 .author-pro-featured-image a {
     display: inline-block;
-    overflow:hidden;
-    position:relative;
+    overflow: hidden;
+    position: relative;
     text-align: center;
 }
 
-.author-pro-featured-image {
+.author-pro-featured-image.image-aligncenter {
     margin: 0 auto 20px;
     text-align: center;
 }
