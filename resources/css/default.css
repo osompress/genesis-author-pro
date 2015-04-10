@@ -34,8 +34,7 @@
 /* ## Book Image
 --------------------------------------------- */
 
-.author-pro-featured-image,
-.author-pro-featured-image img {
+.author-pro-featured-image {
 	display: block;
 	margin: 0 auto 20px;
 }
