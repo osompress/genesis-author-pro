@@ -72,52 +72,57 @@ class Genesis_Author_Pro_Widget_Output {
 
 		}
 
-		if ( ! empty( $this->_instance['show_title'] ) ) {
+		if( ! empty( $this->_instance['show_title'] ) || ! empty( $this->_instance['show_author'] ) ){
 
-			$title = get_the_title() ? get_the_title() : __( '(no title)', 'genesis' );
+			echo genesis_html5() ? '<header class="entry-header">' : '';
 
-			/**
-			 * Filter the featured book title.
-			 *
-			 *
-			 * @param string $title    Featured book title.
-			 * @param array  $this->_instance {
-			 *     Widget settings for this instance.
-			 *
-			 *     @type string $title           Widget title.
-			 *     @type int    $book_id         ID of the featured page.
-			 *     @type bool   $show_image      True if featured image should be shown, false
-			 *                                   otherwise.
-			 *     @type string $image_alignment Image alignment: alignnone, alignleft,
-			 *                                   aligncenter or alignright.
-			 *     @type string $image_size      Name of the image size.
-			 *     @type bool   $show_title      True if featured page title should be shown,
-			 *                                   false otherwise.
-			 *     @type bool   $show_content    True if featured page content should be shown,
-			 *                                   false otherwise.
-			 *     @type int    $content_limit   Amount of content to show, in characters.
-			 *     @type int    $more_text       Text to use for More link.
-			 * }
-			 * @param array  $this->_args     {
-			 *     Widget display arguments.
-			 *
-			 *     @type string $before_widget Markup or content to display before the widget.
-			 *     @type string $before_title  Markup or content to display before the widget title.
-			 *     @type string $after_title   Markup or content to display after the widget title.
-			 *     @type string $after_widget  Markup or content to display after the widget.
-			 * }
-			 */
-			$title = apply_filters( 'genesis_author_pro_featured_book_title', $title, $this->_instance, $this->_args );
+			if ( ! empty( $this->_instance['show_title'] ) ) {
 
-			if ( genesis_html5() )
-				printf( '<header class="entry-header"><h2 class="entry-title"><a href="%s">%s</a></h2></header>', get_permalink(), $title );
-			else
-				printf( '<h2><a href="%s">%s</a></h2>', get_permalink(), $title );
+				$title = get_the_title() ? get_the_title() : __( '(no title)', 'genesis' );
+
+				/**
+				 * Filter the featured book title.
+				 *
+				 *
+				 * @param string $title    Featured book title.
+				 * @param array  $this->_instance {
+				 *     Widget settings for this instance.
+				 *
+				 *     @type string $title           Widget title.
+				 *     @type int    $book_id         ID of the featured page.
+				 *     @type bool   $show_image      True if featured image should be shown, false
+				 *                                   otherwise.
+				 *     @type string $image_alignment Image alignment: alignnone, alignleft,
+				 *                                   aligncenter or alignright.
+				 *     @type string $image_size      Name of the image size.
+				 *     @type bool   $show_title      True if featured page title should be shown,
+				 *                                   false otherwise.
+				 *     @type bool   $show_content    True if featured page content should be shown,
+				 *                                   false otherwise.
+				 *     @type int    $content_limit   Amount of content to show, in characters.
+				 *     @type int    $more_text       Text to use for More link.
+				 * }
+				 * @param array  $this->_args     {
+				 *     Widget display arguments.
+				 *
+				 *     @type string $before_widget Markup or content to display before the widget.
+				 *     @type string $before_title  Markup or content to display before the widget title.
+				 *     @type string $after_title   Markup or content to display after the widget title.
+				 *     @type string $after_widget  Markup or content to display after the widget.
+				 * }
+				 */
+				$title = apply_filters( 'genesis_author_pro_featured_book_title', $title, $this->_instance, $this->_args );
+
+				printf( '<h2 class="entry-title"><a href="%s">%s</a></h2>', get_permalink(), $title );
+
+			}
+
+			//include the author details if selected
+			$this->_instance['show_author'] ? genesis_author_pro_do_by_line() : '';
+
+			echo genesis_html5() ? '</header>' : '';
 
 		}
-
-		//include the author details if selected
-		$this->_instance['show_author'] ? genesis_author_pro_do_by_line() : '';
 
 		//show the content, content limit, or excerpt as selected
 		if ( ! empty( $this->_instance['show_content'] ) || ! empty( $this->_instance['show_price'] ) || ! empty( $this->_instance['more_text'] ) ) {
