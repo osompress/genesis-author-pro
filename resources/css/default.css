@@ -34,9 +34,34 @@
 /* ## Book Image
 --------------------------------------------- */
 
+.single-books .author-pro-featured-image,
+.archive.genesis-author-pro .author-pro-featured-image,
+.author-pro-featured-image a {
+    position:relative;
+    overflow:hidden;
+    text-align: center;
+}
+
 .author-pro-featured-image {
-	display: block;
-	margin: 0 auto 20px;
+    margin: 0 auto 20px;
+}
+
+.book-featured-text-banner {
+    -moz-transform:rotate(45deg);
+    -ms-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    -webkit-transform:rotate(45deg);
+    background-color:#000;
+    color:#fff;
+    font-size:10px;
+    font-weight:700;
+    padding:6px 12px;
+    position:absolute;
+    right:-35px;
+    text-align:center;
+    text-transform:uppercase;
+    top:30px;
+    width:160px;
 }
 
 
