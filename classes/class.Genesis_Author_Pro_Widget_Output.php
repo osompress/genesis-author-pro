@@ -120,37 +120,41 @@ class Genesis_Author_Pro_Widget_Output {
 		$this->_instance['show_author'] ? genesis_author_pro_do_by_line() : '';
 
 		//show the content, content limit, or excerpt as selected
-		if ( ! empty( $this->_instance['show_content'] ) ) {
+		if ( ! empty( $this->_instance['show_content'] ) || ! empty( $this->_instance['show_price'] ) || ! empty( $this->_instance['more_text'] ) ) {
 
 			echo genesis_html5() ? '<div class="entry-content">' : '';
 
-			if ( 'excerpt' == $this->_instance['show_content'] ) {
-				the_excerpt();
+			if ( ! empty( $this->_instance['show_content'] ) ) {
+
+				if ( 'excerpt' == $this->_instance['show_content'] ) {
+					the_excerpt();
+				}
+				elseif ( 'content-limit' == $this->_instance['show_content'] ) {
+					the_content_limit( (int) $this->_instance['content_limit'], '' );
+				}
+				else {
+
+					global $more;
+
+					$orig_more = $more;
+					$more = 0;
+
+					the_content( '' );
+
+					$more = $orig_more;
+
+				}
+
 			}
-			elseif ( 'content-limit' == $this->_instance['show_content'] ) {
-				the_content_limit( (int) $this->_instance['content_limit'], '' );
-			}
-			else {
 
-				global $more;
+			echo empty( $this->_instance['show_price'] ) ? '' : sprintf( '<p>%s</p>', genesis_author_pro_get_price() );
 
-				$orig_more = $more;
-				$more = 0;
-
-				the_content( '' );
-
-				$more = $orig_more;
-
-			}
+			//show the link to view the single book page if selected
+			echo empty( $this->_instance['more_text'] )  ? '' : sprintf( '<p><a href="%s" class="button">%s</a></p>', get_permalink(), $this->_instance['more_text'] );
 
 			echo genesis_html5() ? '</div>' : '';
 
 		}
-
-		echo empty( $this->_instance['show_price'] ) ? '' : sprintf( '<p>%s</p>', genesis_author_pro_get_price() );
-
-		//show the link to view the single book page if selected
-		echo empty( $this->_instance['more_text'] )  ? '' : sprintf( '<p><a href="%s" class="button">%s</a></p>', get_permalink(), $this->_instance['more_text'] );
 
 		genesis_markup( array(
 				'html5' => '</article>',
