@@ -37,14 +37,17 @@
 .archive.genesis-author-pro .author-pro-featured-image,
 .author-pro-featured-image a,
 .single-books .author-pro-featured-image {
-    display: inline-block;
     overflow: hidden;
     position: relative;
-    text-align: center;
 }
 
 .author-pro-featured-image.image-aligncenter {
     text-align: center;
+}
+
+.author-pro-featured-image.image-aligncenter a {
+    display: inline-block;
+    max-width: 100%;
 }
 
 .archive.genesis-author-pro .author-pro-featured-image img,
