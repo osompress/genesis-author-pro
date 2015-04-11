@@ -93,6 +93,7 @@
 
 .book-details {
 	margin-bottom: 35px;
+	text-align: center;
 }
 
 .book-featured-text-banner {
@@ -106,7 +107,6 @@
 	font-size: 30px;
 	margin: 0 0 26px;
 	padding: 0 0 26px;
-	text-align: center;
 }
 
 .book-details-meta .label {
@@ -124,6 +124,7 @@
 .entry-content .book-details-meta li {
 	list-style-type: none;
 	margin-left: 0;
+	text-align: left;
 }
 
 
