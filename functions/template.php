@@ -276,7 +276,7 @@ function genesis_author_pro_book_details( $post_id = '' ) {
  */
 function genesis_author_pro_get_book_image(){
 
-	if ( $image = genesis_get_image( array( 'format' => 'url', 'size' => 'author_pro_archive' ) ) ) {
+	if ( $image = genesis_get_image( array( 'format' => 'url', 'size' => 'author-pro-image' ) ) ) {
 
 		$banner = ( $text = genesis_author_pro_get_book_meta( 'featured_text' ) ) ? sprintf( '<div class="book-featured-text-banner">%s</div>', $text ) : '';
 
