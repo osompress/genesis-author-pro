@@ -135,7 +135,13 @@ class Genesis_Author_Pro_Widget_Output {
 					the_excerpt();
 				}
 				elseif ( 'content-limit' == $this->_instance['show_content'] ) {
+
+					add_filter( 'get_the_content_limit', array( $this, 'content_limit_filter' ) );
+
 					the_content_limit( (int) $this->_instance['content_limit'], '' );
+
+					remove_filter( 'get_the_content_limit', array( $this, 'content_limit_filter' ) );
+
 				}
 				else {
 
@@ -174,6 +180,19 @@ class Genesis_Author_Pro_Widget_Output {
 
 		echo $this->_args['after_widget'];
 
+	}
+
+	/**
+	 * Filter on get_the_content_limit.
+	 * Adds an ellipse inside the <p></p> of the returned text.
+	 *
+	 * @access public
+	 * @static
+	 * @param string $text
+	 * @return string
+	 */
+	static public function content_limit_filter( $text ){
+		return str_replace( '</p>', '&#x02026;</p>', $text );
 	}
 
 }
