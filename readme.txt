@@ -1,5 +1,5 @@
 === Genesis Author Pro ===
-Contributors: nick_thegeek, dreamwhisper, laurenmancke
+Contributors: nick_thegeek, dreamwhisper, laurenmancke, studiopress
 Tags: genesis, authors, books
 Requires at least: 3.9
 Tested up to: 4.1.1
