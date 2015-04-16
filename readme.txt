@@ -63,7 +63,7 @@ Templates are built into the plugin with default CSS to create the basic layout 
 * taxonomy-book-series.php
 * taxonomy-book-tags.php
 
-The Genesis Author Pro plugin was built specifically for the [Author Pro](http://my.studiopress.com/themes/author-pro/ "Click to view theme details") theme by [StudioPress](http://studiopress.com) but should work on all HTML5 Genesis child themes. 
+The Genesis Author Pro plugin was built specifically for the [Author Pro](http://my.studiopress.com/themes/author/ "Click to view theme details") theme by [StudioPress](http://studiopress.com) but should work on all HTML5 Genesis child themes. 
 
 You can view a demo of the plugin in the Author Pro theme [here](http://demo.studiopress.com/author/).
 
