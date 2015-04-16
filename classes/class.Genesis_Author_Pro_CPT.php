@@ -68,9 +68,9 @@ class Genesis_Author_Pro_CPT {
 
 		global $_wp_additional_image_sizes;
 
-		if( ! isset( $_wp_additional_image_sizes['author_pro_archive'] ) ) {
+		if( ! isset( $_wp_additional_image_sizes['author-pro-image'] ) ) {
 
-			add_image_size( 'author_pro_archive', 360, 570, TRUE );
+			add_image_size( 'author-pro-image', 360, 570, TRUE );
 
 		}
 
@@ -177,14 +177,14 @@ class Genesis_Author_Pro_CPT {
 
 		$labels = array(
 			'name'                       => _x( 'Book Series' , 'taxonomy general name' , 'genesis-author-pro' ),
-			'singular_name'              => _x( 'Book Serial' , 'taxonomy singular name', 'genesis-author-pro' ),
+			'singular_name'              => _x( 'Book Series' , 'taxonomy singular name', 'genesis-author-pro' ),
 			'search_items'               => __( 'Search Book Series'                    , 'genesis-author-pro' ),
 			'all_items'                  => __( 'All Book Series'                       , 'genesis-author-pro' ),
-			'edit_item'                  => __( 'Edit Book Serial'                      , 'genesis-author-pro' ),
-			'update_item'                => __( 'Update Book Serial'                    , 'genesis-author-pro' ),
-			'add_new_item'               => __( 'Add New Book Serial'                   , 'genesis-author-pro' ),
-			'new_item_name'              => __( 'New Book Serial Name'                  , 'genesis-author-pro' ),
-			'add_or_remove_items'        => __( 'Add or remove Book Serial'             , 'genesis-author-pro' ),
+			'edit_item'                  => __( 'Edit Book Series'                      , 'genesis-author-pro' ),
+			'update_item'                => __( 'Update Book Series'                    , 'genesis-author-pro' ),
+			'add_new_item'               => __( 'Add New Book Series'                   , 'genesis-author-pro' ),
+			'new_item_name'              => __( 'New Book Series Name'                  , 'genesis-author-pro' ),
+			'add_or_remove_items'        => __( 'Add or remove Book Series'             , 'genesis-author-pro' ),
 			'not_found'                  => __( 'No Book Series found.'                 , 'genesis-author-pro' ),
 			'menu_name'                  => __( 'Series'                                , 'genesis-author-pro' ),
 			'parent_item'                => null,
@@ -197,7 +197,7 @@ class Genesis_Author_Pro_CPT {
 			'show_ui'           => true,
 			'show_admin_column' => true,
 			'query_var'         => true,
-			'rewrite'           => array( 'slug' => 'serial' ),
+			'rewrite'           => array( 'slug' => 'series' ),
 		);
 
 		register_taxonomy( $this->series, array( $this->post_type ), $args );

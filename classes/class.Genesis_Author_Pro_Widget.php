@@ -21,15 +21,18 @@ class Genesis_Author_Pro_Widget extends WP_Widget {
 	function __construct() {
 
 		$this->defaults = array(
-			'title'           => '',
-			'book_id'         => '',
-			'show_image'      => 0,
-			'image_alignment' => '',
-			'image_size'      => '',
-			'show_title'      => 0,
-			'show_content'    => 0,
-			'content_limit'   => '',
-			'more_text'       => '',
+			'title'              => '',
+			'show_author'        => '',
+			'book_id'            => '',
+			'show_image'         => 0,
+			'image_alignment'    => '',
+			'image_size'         => 'author-pro-image',
+			'show_featured_text' => '',
+			'show_title'         => 0,
+			'show_content'       => 0,
+			'content_limit'      => '',
+			'show_price'         => '',
+			'more_text'          => __( 'View Book', 'genesis-author-pro' ),
 		);
 
 		$widget_ops = array(
@@ -44,7 +47,30 @@ class Genesis_Author_Pro_Widget extends WP_Widget {
 		);
 
 		parent::__construct( 'featured-book', __( 'Genesis Author Pro - Featured Book', 'genesis-author-pro' ), $widget_ops, $control_ops );
+		
+		add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_scripts') );
 
+	}
+	
+	/**
+	 * Action added on the wp_enqueue_scripts hook.
+	 * Loads the author stylesheet if the widget is active and the default styles are not being overridden.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	function enqueue_scripts(){
+	
+		if( apply_filters( 'genesis_author_pro_load_default_styles', true ) && is_active_widget( false, false, $this->id_base, true ) ) {
+			
+			wp_enqueue_style( 'genesis_author_pro',
+				GENESIS_AUTHOR_PRO_RESOURCES_URL . 'css/default.css',
+				false,
+				'1.0.0'
+			);
+			
+		}           
+	
 	}
 
 	/**

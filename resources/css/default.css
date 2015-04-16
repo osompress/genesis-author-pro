@@ -1,38 +1,146 @@
 /* ## Archives
 --------------------------------------------- */
-.archive.genesis-author-pro .content {
-	padding:80px 80px 40px;
-}
 
 .archive.genesis-author-pro .content .entry {
-	float:left;
-	margin:0 0 40px 2.5641025641026%;
-	padding:0;
-	text-align:center;
-	width:31.623931623932%;
+	background-image: none;
+	border-width: 0;	
+	float: left;
+	margin: 0 0 40px 2.5641025641026%;
+	padding: 15px;
+	text-align: center;
+	width: 31.623931623932%;
 }
 
 .archive.genesis-author-pro .content .entry:nth-of-type(3n+1) {
-	clear:both;
-	margin-left:0;
+	clear: both;
+	margin-left: 0;
 }
+
+.archive.genesis-author-pro .content  .entry-header {
+	border-width: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.archive.genesis-author-pro .content .entry-header .entry-title {
+	border-width: 0;
+	font-size: 20px;
+	margin-left: auto;
+	padding: 0;
+	word-wrap: break-word;
+}
+
+
+/* ## Book Image
+--------------------------------------------- */
+
+.archive.genesis-author-pro .author-pro-featured-image,
+.author-pro-featured-image a,
+.single-books .author-pro-featured-image {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.author-pro-featured-image.image-aligncenter {
+    text-align: center;
+}
+
+.archive.genesis-author-pro .author-pro-featured-image img,
+.single-books .author-pro-featured-image img {
+    margin: 0 auto 20px;
+}
+
+.book-featured-text-banner {
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    background-color: #000;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 6px 12px;
+    position: absolute;
+    right: -35px;
+    text-align: center;
+    text-transform: uppercase;
+    top: 30px;
+    width: 160px;
+}
+
+
+/* ## Single Book Layout
+--------------------------------------------- */
+
+.genesis-author-pro-book-description {
+	clear: none;
+	float: left;
+}
+
+.genesis-author-pro-book-details {
+	float: right;
+}
+
 
 /* ## Book Details
 --------------------------------------------- */
-.book-price {
-	text-align:center;
-	display:block;
-	margin:0 0 35px;
-	font-size:30px;
+
+.book-by-line {
+	margin-bottom: 10px;
+}
+
+.book-details {
+	margin-bottom: 35px;
+	text-align: center;
+}
+
+.book-featured-text-banner {
+	display: block;
+	text-align: center;
+}
+
+.single-books .book-price {
+	border-bottom: 2px solid #eee;
+	display: block;	
+	font-size: 30px;
+	margin: 0 0 26px;
+	padding: 0 0 26px;
 }
 
 .book-details-meta .label {
-	font-weight:700;
+	font-weight: 700;
 }
 
 .button-book {
-	display:block;
-	width:100%;
-	text-align:center;
-	margin:10px auto;
+	display: block;
+	margin: 10px auto;	
+	text-align: center;
+	width: 100%;
+}
+
+.entry-content .book-details-meta,
+.entry-content .book-details-meta li {
+	list-style-type: none;
+	margin-left: 0;
+	text-align: left;
+}
+
+
+/* ## Media Queries
+--------------------------------------------- */
+
+@media only screen and (max-width: 780px) {
+
+	.archive.genesis-author-pro .content .entry {
+		margin-left: 0;
+		width: 100%;
+	}
+	
+	.genesis-author-pro-book-details,
+	.genesis-author-pro-book-description {
+		float: none;
+	}
+
 }

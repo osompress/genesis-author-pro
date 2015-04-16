@@ -175,7 +175,7 @@ function genesis_author_pro_custom_post_class( $classes ) {
  */
 function genesis_author_pro_grid() {
 
-	if ( $image = genesis_get_image( 'format=url&size=author_pro_archive' ) ) {
+	if ( $image = genesis_get_image( 'format=url&size=author-pro-image' ) ) {
 
 		$banner = ( $text = genesis_author_pro_get_book_meta( 'featured_text' ) ) ? sprintf( '<span class="book-featured-text-banner">%s</span>', $text ) : '';
 
@@ -194,12 +194,12 @@ function genesis_author_pro_grid() {
  */
 function genesis_author_pro_single_content(){
 
-	echo '<div class="two-thirds first genesis-author-pro-book-description">';
-	the_content();
-	echo '</div>';
-
 	echo '<div class="one-third genesis-author-pro-book-details">';
 	genesis_author_pro_book_details();
+	echo '</div>';
+
+	echo '<div class="two-thirds first genesis-author-pro-book-description">';
+	the_content();
 	echo '</div>';
 
 	echo '<br class="clear" />';
@@ -274,11 +274,11 @@ function genesis_author_pro_book_details( $post_id = '' ) {
  * @param string $post_id (default: '')
  * @return string
  */
-function genesis_author_pro_get_book_image( $post_id = '' ){
+function genesis_author_pro_get_book_image(){
 
-	if ( $image = genesis_get_image( array( 'format' => 'url', 'size' => 'author_pro_archive', 'post_id' => $post_id ) ) ) {
+	if ( $image = genesis_get_image( array( 'format' => 'url', 'size' => 'author-pro-image' ) ) ) {
 
-		$banner = ( $text = genesis_author_pro_get_book_meta( 'featured_text' ) ) ? sprintf( '<span class="book-featured-text-banner">%s</span>', $text ) : '';
+		$banner = ( $text = genesis_author_pro_get_book_meta( 'featured_text' ) ) ? sprintf( '<div class="book-featured-text-banner">%s</div>', $text ) : '';
 
 		$image = sprintf( '<div class="author-pro-featured-image"><img src="%s" alt="%s" />%s</div>', $image, the_title_attribute( 'echo=0' ), $banner );
 
@@ -307,7 +307,7 @@ function genesis_author_pro_do_by_line(){
 
 	foreach( $terms as $term ){
 
-		$authors[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term ) ), $term->name );
+		$authors[] = sprintf( '<a class="book-author-link" href="%s">%s</a>', esc_url( get_term_link( $term ) ), $term->name );
 
 	}
 
@@ -318,7 +318,7 @@ function genesis_author_pro_do_by_line(){
 	*/
 	if( ! empty( $authors ) ){
 		printf(
-			'<div class="book-by-line">%s%s</div>',
+			'<p class="book-author">%s%s</p>',
 			__( 'By ', 'genesis-author-pro' ),
 			join(
 				__( ' and ', 'genesis-author-pro' ),

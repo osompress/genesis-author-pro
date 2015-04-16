@@ -5,11 +5,11 @@
  * Generates the Genesis Author Pro Featured Book Widget.
  */
 class Genesis_Author_Pro_Widget_Output {
-	
+
 	private $_args;
-	
+
 	private $_instance;
-	
+
 	private $_widget_object;
 
 	/**
@@ -18,15 +18,15 @@ class Genesis_Author_Pro_Widget_Output {
 	 * @since 0.1.8
 	 */
 	function __construct( $args, $instance, $widget_object ) {
-		
+
 		$this->_args          = $args;
 		$this->_instance      = $instance;
 		$this->_widget_object = $widget_object;
-		
+
 		require_once( GENESIS_AUTHOR_PRO_FUNCTIONS_DIR . 'template.php' );
 
 		$this->widget_output();
-		
+
 	}
 
 	/**
@@ -52,25 +52,29 @@ class Genesis_Author_Pro_Widget_Output {
 		if ( have_posts() ) : while ( have_posts() ) : the_post();
 
 			genesis_markup( array(
-				'html5'   => '<article %s>',
-				'xhtml'   => sprintf( '<div class="%s">', implode( ' ', get_post_class() ) ),
-				'context' => 'entry',
-			) );
+					'html5'   => '<article %s>',
+					'xhtml'   => sprintf( '<div class="%s">', implode( ' ', get_post_class() ) ),
+					'context' => 'entry',
+				) );
 
-			$image = genesis_get_image( array(
+		$image = genesis_get_image( array(
 				'format'  => 'html',
 				'size'    => $this->_instance['image_size'],
 				'context' => 'featured-page-widget',
 				'attr'    => genesis_parse_attr( 'entry-image-widget' ),
 			) );
 
-			if ( $this->_instance['show_image'] && $image ) {
-				
-				$banner = ( $text = genesis_author_pro_get_book_meta( 'featured_text' ) ) ? sprintf( '<span class="book-featured-text-banner">%s</span>', $text ) : '';
-				
-				printf( '<div class="author-pro-featured-image %s"><a href="%s" title="%s">%s</a>%s</div>', esc_attr( $this->_instance['image_alignment'] ), get_permalink(), the_title_attribute( 'echo=0' ), $image, $banner );
-				
-			}
+		if ( $this->_instance['show_image'] && $image ) {
+
+			$banner = ( $this->_instance['show_featured_text'] && $text = genesis_author_pro_get_book_meta( 'featured_text' ) ) ? sprintf( '<div class="book-featured-text-banner">%s</div>', $text ) : '';
+
+			printf( '<div class="author-pro-featured-image image-%s"><a class="%s" href="%s" title="%s">%s %s</a></div>', esc_attr( $this->_instance['image_alignment'] ), esc_attr( $this->_instance['image_alignment'] ), get_permalink(), the_title_attribute( 'echo=0' ), $image, $banner );
+
+		}
+
+		if( ! empty( $this->_instance['show_title'] ) || ! empty( $this->_instance['show_author'] ) ){
+
+			echo genesis_html5() ? '<header class="entry-header">' : '';
 
 			if ( ! empty( $this->_instance['show_title'] ) ) {
 
@@ -109,42 +113,66 @@ class Genesis_Author_Pro_Widget_Output {
 				 */
 				$title = apply_filters( 'genesis_author_pro_featured_book_title', $title, $this->_instance, $this->_args );
 
-				if ( genesis_html5() )
-					printf( '<header class="entry-header"><h2 class="entry-title"><a href="%s">%s</a></h2></header>', get_permalink(), $title );
-				else
-					printf( '<h2><a href="%s">%s</a></h2>', get_permalink(), $title );
+				printf( '<h2 class="entry-title"><a href="%s">%s</a></h2>', get_permalink(), $title );
 
 			}
 
+			//include the author details if selected
+			$this->_instance['show_author'] ? genesis_author_pro_do_by_line() : '';
+
+			echo genesis_html5() ? '</header>' : '';
+
+		}
+
+		//show the content, content limit, or excerpt as selected
+		if ( ! empty( $this->_instance['show_content'] ) || ! empty( $this->_instance['show_price'] ) || ! empty( $this->_instance['more_text'] ) ) {
+
+			echo genesis_html5() ? '<div class="entry-content">' : '';
+
 			if ( ! empty( $this->_instance['show_content'] ) ) {
 
-				echo genesis_html5() ? '<div class="entry-content">' : '';
+				if ( 'excerpt' == $this->_instance['show_content'] ) {
+					the_excerpt();
+				}
+				elseif ( 'content-limit' == $this->_instance['show_content'] ) {
 
-				if ( empty( $this->_instance['content_limit'] ) ) {
+					add_filter( 'get_the_content_limit', array( $this, 'content_limit_filter' ) );
+
+					the_content_limit( (int) $this->_instance['content_limit'], '' );
+
+					remove_filter( 'get_the_content_limit', array( $this, 'content_limit_filter' ) );
+
+				}
+				else {
 
 					global $more;
 
 					$orig_more = $more;
 					$more = 0;
 
-					the_content( $this->_instance['more_text'] );
+					the_content( '' );
 
 					$more = $orig_more;
 
-				} else {
-					the_content_limit( (int) $this->_instance['content_limit'], esc_html( $this->_instance['more_text'] ) );
 				}
-
-				echo genesis_html5() ? '</div>' : '';
 
 			}
 
-			genesis_markup( array(
+			echo empty( $this->_instance['show_price'] ) ? '' : sprintf( '<p>%s</p>', genesis_author_pro_get_price() );
+
+			//show the link to view the single book page if selected
+			echo empty( $this->_instance['more_text'] )  ? '' : sprintf( '<p><a href="%s" class="button">%s</a></p>', get_permalink(), $this->_instance['more_text'] );
+
+			echo genesis_html5() ? '</div>' : '';
+
+		}
+
+		genesis_markup( array(
 				'html5' => '</article>',
 				'xhtml' => '</div>',
 			) );
 
-			endwhile;
+		endwhile;
 		endif;
 
 		//* Restore original query
@@ -152,6 +180,19 @@ class Genesis_Author_Pro_Widget_Output {
 
 		echo $this->_args['after_widget'];
 
+	}
+
+	/**
+	 * Filter on get_the_content_limit.
+	 * Adds an ellipse inside the <p></p> of the returned text.
+	 *
+	 * @access public
+	 * @static
+	 * @param string $text
+	 * @return string
+	 */
+	static public function content_limit_filter( $text ){
+		return str_replace( '</p>', '&#x02026;</p>', $text );
 	}
 
 }
