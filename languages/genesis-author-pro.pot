@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Genesis Author Pro\n"
-"POT-Creation-Date: 2015-04-06 13:24-0500\n"
-"PO-Revision-Date: 2015-04-06 13:25-0500\n"
+"POT-Creation-Date: 2015-04-20 09:53-0500\n"
+"PO-Revision-Date: 2015-04-20 09:53-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -268,11 +268,8 @@ msgid "Authors"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_CPT.php:179
-msgid "Book Series"
-msgstr ""
-
 #: classes/class.Genesis_Author_Pro_CPT.php:180
-msgid "Book Serial"
+msgid "Book Series"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_CPT.php:181
@@ -284,23 +281,23 @@ msgid "All Book Series"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_CPT.php:183
-msgid "Edit Book Serial"
+msgid "Edit Book Series"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_CPT.php:184
-msgid "Update Book Serial"
+msgid "Update Book Series"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_CPT.php:185
-msgid "Add New Book Serial"
+msgid "Add New Book Series"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_CPT.php:186
-msgid "New Book Serial Name"
+msgid "New Book Series Name"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_CPT.php:187
-msgid "Add or remove Book Serial"
+msgid "Add or remove Book Series"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_CPT.php:188
@@ -443,7 +440,7 @@ msgstr ""
 msgid "View Book Text"
 msgstr ""
 
-#: classes/class.Genesis_Author_Pro_Widget_Output.php:77
+#: classes/class.Genesis_Author_Pro_Widget_Output.php:81
 msgid "(no title)"
 msgstr ""
 
