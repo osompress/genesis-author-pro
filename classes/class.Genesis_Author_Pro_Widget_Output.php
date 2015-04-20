@@ -78,7 +78,7 @@ class Genesis_Author_Pro_Widget_Output {
 
 			if ( ! empty( $this->_instance['show_title'] ) ) {
 
-				$title = get_the_title() ? get_the_title() : __( '(no title)', 'genesis' );
+				$title = get_the_title() ? get_the_title() : __( '(no title)', 'genesis-author-pro' );
 
 				/**
 				 * Filter the featured book title.
