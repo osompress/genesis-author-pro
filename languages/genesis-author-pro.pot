@@ -1,47 +1,47 @@
+# Copyright (C) 2015 Genesis Author Pro
+# This file is distributed under the same license as the Genesis Author Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Genesis Author Pro\n"
-"POT-Creation-Date: 2015-04-20 09:53-0500\n"
-"PO-Revision-Date: 2015-04-20 09:53-0500\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: en_US\n"
+"Project-Id-Version: Genesis Author Pro 0.9.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/genesis-author-"
+"pro\n"
+"POT-Creation-Date: 2015-04-22 19:01:06+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.5\n"
-"X-Poedit-Basepath: ../\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n;_x\n"
-"X-Poedit-SearchPath-0: classes\n"
-"X-Poedit-SearchPath-1: functions\n"
-"X-Poedit-SearchPath-2: templates\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: classes/class.Genesis_Author_Pro.php:123
-#, php-format
+#: classes/class.Genesis_Author_Pro.php:108
 msgid "%s book updated."
-msgstr ""
+msgid_plural "%s books updated."
+msgstr[0] ""
+msgstr[1] ""
 
-#: classes/class.Genesis_Author_Pro.php:124
-#, php-format
+#: classes/class.Genesis_Author_Pro.php:109
 msgid "%s book not updated, somebody is editing it."
-msgstr ""
+msgid_plural "%s books not updated, somebody is editing them."
+msgstr[0] ""
+msgstr[1] ""
 
-#: classes/class.Genesis_Author_Pro.php:125
-#, php-format
+#: classes/class.Genesis_Author_Pro.php:110
 msgid "%s book permanently deleted."
-msgstr ""
+msgid_plural "%s books permanently deleted."
+msgstr[0] ""
+msgstr[1] ""
 
-#: classes/class.Genesis_Author_Pro.php:126
-#, php-format
+#: classes/class.Genesis_Author_Pro.php:111
 msgid "%s book moved to the Trash."
-msgstr ""
+msgid_plural "%s books moved to the Trash."
+msgstr[0] ""
+msgstr[1] ""
 
-#: classes/class.Genesis_Author_Pro.php:127
-#, php-format
+#: classes/class.Genesis_Author_Pro.php:112
 msgid "%s book restored from the Trash."
-msgstr ""
+msgid_plural "%s books restored from the Trash."
+msgstr[0] ""
+msgstr[1] ""
 
 #: classes/class.Genesis_Author_Pro_Book_Meta.php:93
 msgid "Book Details"
@@ -131,12 +131,10 @@ msgid "Button 3"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_Book_Meta.php:310
-#, php-format
 msgid "%s URI"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_Book_Meta.php:315
-#, php-format
 msgid "%s Text"
 msgstr ""
 
@@ -153,8 +151,8 @@ msgstr ""
 msgid "Custom field deleted."
 msgstr ""
 
+#. translators: %s: date and time of the revision
 #: classes/class.Genesis_Author_Pro_Book_Meta.php:405
-#, php-format
 msgid "Book restored to revision from %s."
 msgstr ""
 
@@ -171,7 +169,6 @@ msgid "Book submitted."
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_Book_Meta.php:409
-#, php-format
 msgid "Book scheduled for: %1$s."
 msgstr ""
 
@@ -180,16 +177,19 @@ msgid "Book draft updated."
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_CPT.php:109
-#: classes/class.Genesis_Author_Pro_CPT.php:112
+msgctxt "post type general name"
 msgid "Library"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_CPT.php:110
-#: classes/class.Genesis_Author_Pro_Widget_Admin.php:71
+msgctxt "post type singular name"
 msgid "Book"
 msgstr ""
 
-#: classes/class.Genesis_Author_Pro_CPT.php:111
+#: classes/class.Genesis_Author_Pro_CPT.php:112
+msgid "Library"
+msgstr ""
+
 #: classes/class.Genesis_Author_Pro_CPT.php:113
 msgid "Add New Book"
 msgstr ""
@@ -224,10 +224,12 @@ msgid "No Books Found in Trash"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_CPT.php:152
+msgctxt "taxonomy general name"
 msgid "Book Authors"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_CPT.php:153
+msgctxt "taxonomy singular name"
 msgid "Book Author"
 msgstr ""
 
@@ -268,7 +270,12 @@ msgid "Authors"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_CPT.php:179
+msgctxt "taxonomy general name"
+msgid "Book Series"
+msgstr ""
+
 #: classes/class.Genesis_Author_Pro_CPT.php:180
+msgctxt "taxonomy singular name"
 msgid "Book Series"
 msgstr ""
 
@@ -309,10 +316,12 @@ msgid "Series"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_CPT.php:206
+msgctxt "taxonomy general name"
 msgid "Book Tags"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_CPT.php:207
+msgctxt "taxonomy singular name"
 msgid "Book Tag"
 msgstr ""
 
@@ -362,6 +371,10 @@ msgstr ""
 
 #: classes/class.Genesis_Author_Pro_Widget_Admin.php:55
 msgid "Title"
+msgstr ""
+
+#: classes/class.Genesis_Author_Pro_Widget_Admin.php:71
+msgid "Book"
 msgstr ""
 
 #: classes/class.Genesis_Author_Pro_Widget_Admin.php:104
@@ -470,4 +483,20 @@ msgstr ""
 
 #: functions/template.php:439
 msgid "Published"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Genesis Author Pro"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Adds default Book CPT to any Genesis HTML5 theme."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "copyblogger"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.copyblogger.com"
 msgstr ""
