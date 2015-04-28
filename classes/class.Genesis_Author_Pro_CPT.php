@@ -108,7 +108,7 @@ class Genesis_Author_Pro_CPT {
 		$labels = apply_filters( 'genesis_author_pro_cpt_labels', array(
 				'name'               => _x( 'Library'     , 'post type general name' , 'genesis-author-pro' ),
 				'singular_name'      => _x( 'Book'        , 'post type singular name', 'genesis-author-pro' ),
-				'add_new'            => _x( 'Add New Book', $this->post_type         , 'genesis-author-pro' ),
+				'add_new'            => _x( 'Add New Book', 'add_new_book'           , 'genesis-author-pro' ),
 				'menu_name'          => __( 'Library'                                , 'genesis-author-pro' ),
 				'add_new_item'       => __( 'Add New Book'                           , 'genesis-author-pro' ),
 				'edit_item'          => __( 'Edit Book'                              , 'genesis-author-pro' ),
