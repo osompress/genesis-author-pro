@@ -197,7 +197,7 @@ class Genesis_Author_Pro_CPT {
 			'show_ui'           => true,
 			'show_admin_column' => true,
 			'query_var'         => true,
-			'rewrite'           => array( 'slug' => 'series' ),
+			'rewrite'           => array( 'slug' => 'book-series' ),
 		);
 
 		register_taxonomy( $this->series, array( $this->post_type ), $args );
