@@ -72,4 +72,4 @@ Templates are built into the plugin with default CSS to create the basic layout 
 ## Upgrade Notice
 
 ### 0.9 
-Initial Public Release
+Initial Public Release 
