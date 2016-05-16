@@ -130,7 +130,7 @@ class Genesis_Author_Pro_CPT {
 				'query_var'          => true,
 				'rewrite'            => array( 'slug' => apply_filters( 'genesis_author_pro_book_slug', 'book' ) , 'feeds' => true, 'with_front' => true, ),
 				'capability_type'    => 'post',
-				'has_archive'        => 'books',
+				'has_archive'        => apply_filters( 'genesis_author_pro_archive_slug', 'books' ),
 				'hierarchical'       => true,
 				'supports'           => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'genesis-seo', 'genesis-scripts',  'genesis-cpt-archives-settings' ),
 				'menu_position'      => 22,
