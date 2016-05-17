@@ -30,6 +30,9 @@
 	word-wrap: break-word;
 }
 
+.genesis-author-pro .archive-pagination {
+    clear: both;
+}
 
 /* ## Book Image
 --------------------------------------------- */
