@@ -37,7 +37,7 @@ class Genesis_Author_Pro_Widget extends WP_Widget {
 
 		$widget_ops = array(
 			'classname'   => 'featured-content featuredpage featuredbook',
-			'description' => __( 'Displays featured page with thumbnails', 'genesis-author-pro' ),
+			'description' => __( 'Displays a single book with several customizable display options.', 'genesis-author-pro' ),
 		);
 
 		$control_ops = array(
