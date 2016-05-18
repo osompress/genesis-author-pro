@@ -73,6 +73,8 @@ function genesis_author_pro_remove_all_entry_actions(){
 		remove_all_actions( $hook );
 	}
 
+	add_action( 'genesis_entry_content', 'genesis_do_post_content_nav', 12 );
+
 }
 
 /**
