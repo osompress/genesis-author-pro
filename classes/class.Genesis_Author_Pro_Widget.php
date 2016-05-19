@@ -46,7 +46,7 @@ class Genesis_Author_Pro_Widget extends WP_Widget {
 			'height'  => 250,
 		);
 
-		parent::__construct( 'featured-book', __( 'Author Pro - Featured Book', 'genesis-author-pro' ), $widget_ops, $control_ops );
+		parent::__construct( 'featured-book', __( 'Genesis Author Pro - Featured Book', 'genesis-author-pro' ), $widget_ops, $control_ops );
 		
 		add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_scripts') );
 
