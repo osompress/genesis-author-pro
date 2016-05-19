@@ -203,7 +203,7 @@ class Genesis_Author_Pro_Book_Meta {
 			array(
 				'name'        => 'featured_text',
 				'label'       => __( 'Featured Text', 'genesis-author-pro' ),
-				'description' => __( 'This will be added as featured text with the featured image.', 'genesis-author-pro' ),
+				'description' => __( 'This will be displayed as a banner along with the featured image. For best display, the text should be one word or a short two-word phrase.', 'genesis-author-pro' ),
 				'type'        => 'text',
 			),
 			array(
