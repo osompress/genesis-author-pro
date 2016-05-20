@@ -73,8 +73,6 @@ function genesis_author_pro_remove_all_entry_actions(){
 		remove_all_actions( $hook );
 	}
 
-	add_action( 'genesis_entry_content', 'genesis_do_post_content_nav', 12 );
-
 }
 
 /**
@@ -134,6 +132,7 @@ function genesis_author_pro_setup_single_loop(){
 	add_action( 'genesis_before_entry_content', 'genesis_author_pro_do_by_line'    , 12 );
 	add_action( 'genesis_before_entry_content', 'genesis_entry_header_markup_close', 15 );
 	add_action( 'genesis_entry_content'       , 'genesis_author_pro_single_content'     );
+	add_action( 'genesis_entry_content'       , 'genesis_do_post_content_nav'      , 12 );
 	add_action( 'genesis_after_entry_content' , 'genesis_author_pro_book_footer'        );
 
 }
