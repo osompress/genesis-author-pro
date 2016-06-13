@@ -73,3 +73,4 @@ Templates are built into the plugin with default CSS to create the basic layout 
 
 ### 0.9 
 Initial Public Release
+
