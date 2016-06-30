@@ -132,7 +132,7 @@ class Genesis_Author_Pro_CPT {
 				'capability_type'    => 'post',
 				'has_archive'        => 'books',
 				'hierarchical'       => true,
-				'supports'           => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'genesis-seo', 'genesis-scripts',  'genesis-cpt-archives-settings' ),
+				'supports'           => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'genesis-seo', 'genesis-scripts',  'genesis-cpt-archives-settings', 'genesis-simple-menus' ),
 				'menu_position'      => 22,
 			) );
 
