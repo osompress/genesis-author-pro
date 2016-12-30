@@ -7,21 +7,6 @@
 class Genesis_Author_Pro {
 
 	/**
-	 * Action on the plugins_loaded hook.
-	 * Invokes the load_plugin_textdomain() function to support i18 translation strings.
-	 *
-	 * @access public
-	 * @static
-	 * @return void
-	 */
-	static public function load_textdomain() {
-
-		/** Load textdomain for translation */
-		load_plugin_textdomain( 'genesis-author-pro', false, apply_filters( 'genesis_author_pro_text_domain_folder', GENESIS_AUTHOR_PRO_LANGUAGES_DIR ) );
-
-	}
-
-	/**
 	 * Action on the load-post.php and load-post-new.php hooks.
 	 * Checks to make sure the current post type is books
 	 * then instantiates the Genesis_Author_Pro_Book_Meta object.

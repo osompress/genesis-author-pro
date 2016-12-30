@@ -116,9 +116,9 @@
 	font-weight: 700;
 }
 
-.button-book {
+.book-details .button-book {
 	display: block;
-	margin: 10px auto;	
+	margin: 10px auto;
 	text-align: center;
 	width: 100%;
 }

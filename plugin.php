@@ -1,19 +1,33 @@
 <?php
 /*
-  Plugin Name: Genesis Author Pro
-  Plugin URI:
-  Description: Adds default Book CPT to any Genesis HTML5 theme.
-  Version: 0.9.0
-  Author: copyblogger
-  Author URI: http://www.copyblogger.com
-  Text Domain: genesis-author-pro
-  Domain Path /languages/
+	
+Plugin Name: Genesis Author Pro
+Plugin URI:
+Description: Adds default Book CPT to any Genesis HTML5 theme.
+Version: 0.9.0
+Author: copyblogger
+Author URI: http://www.copyblogger.com
+Text Domain: genesis-author-pro
+Domain Path /languages/
 
 */
 
 if ( !defined( 'ABSPATH' ) ) {
 	die( "Sorry, you are not allowed to access this page directly." );
 }
+
+/**
+ * Action on the plugins_loaded hook.
+ * Invokes the load_plugin_textdomain() function to support i18 translation strings.
+ *
+ * @access public
+ * @static
+ * @return void
+ */
+function genesis_author_pro_text_domain() {
+	load_plugin_textdomain( 'genesis-author-pro', false, basename( dirname( __FILE__ ) ) . '/languages/' );
+}
+add_action( 'plugins_loaded', 'genesis_author_pro_text_domain' );
 
 /**
  * Registered autoload function.
@@ -48,12 +62,10 @@ register_activation_hook( __FILE__, array( 'Genesis_Author_Pro_Activation', 'act
 
 define( 'GENESIS_AUTHOR_PRO_CLASSES_DIR'  , dirname(        __FILE__ ) . '/classes/'   );
 define( 'GENESIS_AUTHOR_PRO_FUNCTIONS_DIR', dirname(        __FILE__ ) . '/functions/' );
-define( 'GENESIS_AUTHOR_PRO_LANGUAGES_DIR', dirname(        __FILE__ ) . '/languages/' );
 define( 'GENESIS_AUTHOR_PRO_TEMPLATES_DIR', dirname(        __FILE__ ) . '/templates/' );
 define( 'GENESIS_AUTHOR_PRO_RESOURCES_URL', plugin_dir_url( __FILE__ ) . 'resources/'  );
 
 add_action( 'after_setup_theme', array( 'Genesis_Author_Pro_CPT', 'init'            ), 1 );
-add_action( 'plugins_loaded'   , array( 'Genesis_Author_Pro'    , 'load_textdomain' )    );
 
 add_action( 'genesis_init', 'genesis_author_pro_init' );
 /**

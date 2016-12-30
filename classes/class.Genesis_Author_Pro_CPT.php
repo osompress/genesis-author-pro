@@ -108,7 +108,7 @@ class Genesis_Author_Pro_CPT {
 		$labels = apply_filters( 'genesis_author_pro_cpt_labels', array(
 				'name'               => _x( 'Library'     , 'post type general name' , 'genesis-author-pro' ),
 				'singular_name'      => _x( 'Book'        , 'post type singular name', 'genesis-author-pro' ),
-				'add_new'            => _x( 'Add New Book', $this->post_type         , 'genesis-author-pro' ),
+				'add_new'            => _x( 'Add New Book', 'add_new_book'           , 'genesis-author-pro' ),
 				'menu_name'          => __( 'Library'                                , 'genesis-author-pro' ),
 				'add_new_item'       => __( 'Add New Book'                           , 'genesis-author-pro' ),
 				'edit_item'          => __( 'Edit Book'                              , 'genesis-author-pro' ),
@@ -128,11 +128,11 @@ class Genesis_Author_Pro_CPT {
 				'show_in_menu'       => true,
 				'menu_icon'          => 'dashicons-book-alt',
 				'query_var'          => true,
-				'rewrite'            => array( 'slug' => 'book' , 'feeds' => true, 'with_front' => true, ),
+				'rewrite'            => array( 'slug' => apply_filters( 'genesis_author_pro_book_slug', 'book' ) , 'feeds' => true, 'with_front' => true, ),
 				'capability_type'    => 'post',
-				'has_archive'        => 'books',
+				'has_archive'        => apply_filters( 'genesis_author_pro_archive_slug', 'books' ),
 				'hierarchical'       => true,
-				'supports'           => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'genesis-seo', 'genesis-scripts',  'genesis-cpt-archives-settings' ),
+				'supports'           => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'genesis-seo', 'genesis-scripts',  'genesis-cpt-archives-settings', 'genesis-simple-menus' ),
 				'menu_position'      => 22,
 			) );
 
@@ -170,7 +170,7 @@ class Genesis_Author_Pro_CPT {
 			'show_ui'           => true,
 			'show_admin_column' => true,
 			'query_var'         => true,
-			'rewrite'           => array( 'slug' => 'book-author' ),
+			'rewrite'           => array( 'slug' => apply_filters( 'genesis_author_pro_author_slug', 'book-author' ) ),
 		);
 
 		register_taxonomy( $this->author, array( $this->post_type ), $args );
@@ -197,7 +197,7 @@ class Genesis_Author_Pro_CPT {
 			'show_ui'           => true,
 			'show_admin_column' => true,
 			'query_var'         => true,
-			'rewrite'           => array( 'slug' => 'series' ),
+			'rewrite'           => array( 'slug' => apply_filters( 'genesis_author_pro_series_slug', 'book-series' ) ),
 		);
 
 		register_taxonomy( $this->series, array( $this->post_type ), $args );
@@ -224,7 +224,7 @@ class Genesis_Author_Pro_CPT {
 			'show_ui'           => true,
 			'show_admin_column' => true,
 			'query_var'         => true,
-			'rewrite'           => array( 'slug' => 'book-tag' ),
+			'rewrite'           => array( 'slug' => apply_filters( 'genesis_author_pro_tag_slug', 'book-tag' ) ),
 		);
 
 		register_taxonomy( $this->tag, array( $this->post_type ), $args );

@@ -101,7 +101,7 @@ class Genesis_Author_Pro_Widget_Admin {
 ?>
 		<p>
 			<input id="<?php echo $this->_widget_object->get_field_id( 'show_image' ); ?>" type="checkbox" name="<?php echo esc_attr( $this->_widget_object->get_field_name( 'show_image' ) ); ?>" value="1"<?php checked( $this->_instance['show_image'] ); ?> />
-			<label for="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_image' ) ); ?>"><?php _e( 'Show Featured Image', 'genesis' ); ?></label>
+			<label for="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_image' ) ); ?>"><?php _e( 'Show Featured Image', 'genesis-author-pro' ); ?></label>
 		</p>
 
 		<p>
@@ -128,7 +128,7 @@ class Genesis_Author_Pro_Widget_Admin {
 
 		<p>
 			<input id="<?php echo $this->_widget_object->get_field_id( 'show_featured_text' ); ?>" type="checkbox" name="<?php echo esc_attr( $this->_widget_object->get_field_name( 'show_featured_text' ) ); ?>" value="1"<?php checked( $this->_instance['show_featured_text'] ); ?> />
-			<label for="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_featured_text' ) ); ?>"><?php _e( 'Show Featured Text With Image', 'genesis' ); ?></label>
+			<label for="<?php echo esc_attr( $this->_widget_object->get_field_id( 'show_featured_text' ) ); ?>"><?php _e( 'Show Featured Text With Image', 'genesis-author-pro' ); ?></label>
 		</p>
 		<?php
 	}
