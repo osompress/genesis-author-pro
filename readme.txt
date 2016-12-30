@@ -2,7 +2,7 @@
 Contributors: nick_thegeek, dreamwhisper, laurenmancke, studiopress
 Tags: genesis, authors, books
 Requires at least: 3.9
-Tested up to: 4.1.1
+Tested up to: 4.7
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
