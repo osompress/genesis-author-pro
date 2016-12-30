@@ -4,7 +4,7 @@
 Plugin Name: Genesis Author Pro
 Plugin URI:
 Description: Adds default Book CPT to any Genesis HTML5 theme.
-Version: 0.9.0
+Version: 1.0
 Author: copyblogger
 Author URI: http://www.copyblogger.com
 Text Domain: genesis-author-pro

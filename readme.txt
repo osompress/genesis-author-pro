@@ -3,7 +3,7 @@ Contributors: nick_thegeek, dreamwhisper, laurenmancke, studiopress
 Tags: genesis, authors, books
 Requires at least: 3.9
 Tested up to: 4.1.1
-Stable tag: 0.9
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,10 +76,22 @@ You can view a demo of the plugin in the Author Pro theme [here](http://demo.stu
 
 == Changelog ==
 
+= 1.0 =
+* Adds filters for the various page slugs so they can be altered.
+* Adds support for Genesis Archive Settings.
+* Adds support for Genesis Simple Menus.
+* Fixes i18n issue.
+* Fixes post navigation appearing on archives.
+* Fixes pagination issue.
+* Various copy changes.
+
 = 0.9 =
 * Initial Public Release
 
 == Upgrade Notice ==
+
+= 1.0 =
+* Text strings and other changes were made for i18n. Please update your translation files.
 
 = 0.9 =
 * Initial Public Release
