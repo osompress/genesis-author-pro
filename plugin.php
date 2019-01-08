@@ -1,6 +1,6 @@
 <?php
 /*
-	
+
 Plugin Name: Genesis Author Pro
 Plugin URI:
 Description: Adds default Book CPT to any Genesis HTML5 theme.
@@ -65,7 +65,7 @@ define( 'GENESIS_AUTHOR_PRO_FUNCTIONS_DIR', dirname(        __FILE__ ) . '/funct
 define( 'GENESIS_AUTHOR_PRO_TEMPLATES_DIR', dirname(        __FILE__ ) . '/templates/' );
 define( 'GENESIS_AUTHOR_PRO_RESOURCES_URL', plugin_dir_url( __FILE__ ) . 'resources/'  );
 
-add_action( 'after_setup_theme', array( 'Genesis_Author_Pro_CPT', 'init'            ), 1 );
+add_action( 'init', array( 'Genesis_Author_Pro_CPT', 'init' ), 1 );
 
 add_action( 'genesis_init', 'genesis_author_pro_init' );
 /**
