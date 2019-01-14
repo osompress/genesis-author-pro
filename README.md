@@ -1,9 +1,9 @@
 # Genesis Author Pro
-Contributors: nick_thegeek, dreamwhisper, laurenmancke
+Contributors: nick_thegeek, dreamwhisper, laurenmancke, studiopress, marksabbath, jivedig
 Tags: genesis, authors, books
 Requires at least: 3.9
-Tested up to: 4.1.1
-Stable tag: 0.9
+Tested up to: 5.0.3
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,10 +66,10 @@ Templates are built into the plugin with default CSS to create the basic layout 
 
 ## Changelog
 
-### 0.9 
+### 0.9
 * Initial Public Release
 
 ## Upgrade Notice
 
-### 0.9 
-Initial Public Release 
+### 0.9
+Initial Public Release
