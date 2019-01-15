@@ -231,4 +231,35 @@ class Genesis_Author_Pro_CPT {
 
 	}
 
+	/**
+	 * Remove Genesis Layout Options action from
+	 * taxonomies.
+	 *
+	 * @since 1.0.1
+	 *
+	 * @return void
+	 */
+	static function remove_genesis_layout_options() {
+		$taxonomies = array( 'book-authors', 'book-series', 'book-tags' );
+		foreach( $taxonomies as $taxonomy ) {
+			remove_action( $taxonomy . '_edit_form', 'genesis_taxonomy_layout_options', 10 );
+		}
+	}
+
+	/**
+	 * Maybe remove Genesis Sidebar form
+	 *
+	 * @since 1.0.1
+	 *
+	 * @return void
+	 */
+	static function maybe_remove_genesis_sidebar_form() {
+		if ( class_exists( 'Genesis_Simple_Sidebars' ) && is_admin() ) {
+			$taxonomies = array( 'book-authors', 'book-series', 'book-tags' );
+			foreach( $taxonomies as $taxonomy ) {
+				remove_action( $taxonomy . '_edit_form', array( Genesis_Simple_Sidebars()->term, 'term_sidebar_form' ), 9 );
+			}
+		}
+	}
+
 }

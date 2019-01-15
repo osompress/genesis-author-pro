@@ -1,9 +1,9 @@
 === Genesis Author Pro ===
-Contributors: nick_thegeek, dreamwhisper, laurenmancke, studiopress
+Contributors: nick_thegeek, dreamwhisper, laurenmancke, studiopress, marksabbath, jivedig
 Tags: genesis, authors, books
 Requires at least: 3.9
-Tested up to: 4.7
-Stable tag: 1.0
+Tested up to: 5.0.3
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,7 +25,7 @@ The Genesis Author Pro plugin creates a library which allows you to add books to
 
 In addition to the custom book data, there are three taxonomies created: "Author," "Series," and "Tags." These allow you and your site visitors to sort and organize the books in your library.
 
-The Genesis Author Pro Featured Book widget will allow you to select a book from the library and feature it in any widgeted area of your website. 
+The Genesis Author Pro Featured Book widget will allow you to select a book from the library and feature it in any widgeted area of your website.
 
 Optional output from the widget includes:
 
@@ -63,7 +63,7 @@ Templates are built into the plugin with default CSS to create the basic layout 
 * taxonomy-book-series.php
 * taxonomy-book-tags.php
 
-The Genesis Author Pro plugin was built specifically for the [Author Pro](http://my.studiopress.com/themes/author/ "Click to view theme details") theme by [StudioPress](http://studiopress.com) but should work on all HTML5 Genesis child themes. 
+The Genesis Author Pro plugin was built specifically for the [Author Pro](http://my.studiopress.com/themes/author/ "Click to view theme details") theme by [StudioPress](http://studiopress.com) but should work on all HTML5 Genesis child themes.
 
 You can view a demo of the plugin in the Author Pro theme [here](http://demo.studiopress.com/author/).
 
@@ -75,6 +75,10 @@ You can view a demo of the plugin in the Author Pro theme [here](http://demo.stu
 
 
 == Changelog ==
+
+= 1.0.1 =
++ * Removes Layouts Settings from Authors, Series and Tags.
++ * Removes Simple Sidebar controls from Authors, Series and Tags.
 
 = 1.0 =
 * Adds filters for the various page slugs so they can be altered.
