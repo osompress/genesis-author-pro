@@ -76,6 +76,10 @@ You can view a demo of the plugin in the Author Pro theme [here](http://demo.stu
 
 == Changelog ==
 
+= 1.0.1 =
++ * Removes Layouts Settings from Authors, Series and Tags.
++ * Removes Simple Sidebar controls from Authors, Series and Tags.
+
 = 1.0 =
 * Adds filters for the various page slugs so they can be altered.
 * Adds support for Genesis Archive Settings.

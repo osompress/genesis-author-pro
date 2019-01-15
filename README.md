@@ -66,6 +66,19 @@ Templates are built into the plugin with default CSS to create the basic layout 
 
 ## Changelog
 
+### 1.0.1
+* Removes Layouts Settings from Authors, Series and Tags.
+* Removes Simple Sidebar controls from Authors, Series and Tags.
+
+### 1.0
+* Adds filters for the various page slugs so they can be altered.
+* Adds support for Genesis Archive Settings.
+* Adds support for Genesis Simple Menus.
+* Fixes i18n issue.
+* Fixes post navigation appearing on archives.
+* Fixes pagination issue.
+* Various copy changes.
+
 ### 0.9
 * Initial Public Release
 
