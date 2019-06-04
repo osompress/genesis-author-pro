@@ -109,7 +109,7 @@ class Genesis_Author_Pro_Widget_Admin {
 			<select id="<?php echo esc_attr( $this->_widget_object->get_field_id( 'image_size' ) ); ?>" class="genesis-image-size-selector" name="<?php echo esc_attr( $this->_widget_object->get_field_name( 'image_size' ) ); ?>">
 				<option value="thumbnail">thumbnail (<?php echo absint( get_option( 'thumbnail_size_w' ) ); ?>x<?php echo absint( get_option( 'thumbnail_size_h' ) ); ?>)</option>
 				<?php
-		$sizes = genesis_get_additional_image_sizes();
+		$sizes = wp_get_additional_image_sizes();
 		foreach ( (array) $sizes as $name => $size )
 			echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $this->_instance['image_size'], FALSE ) . '>' . esc_html( $name ) . ' (' . absint( $size['width'] ) . 'x' . absint( $size['height'] ) . ')</option>';
 ?>
