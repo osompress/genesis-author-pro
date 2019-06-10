@@ -2,8 +2,8 @@
 Contributors: nick_thegeek, dreamwhisper, laurenmancke, studiopress, marksabbath, jivedig
 Tags: genesis, authors, books
 Requires at least: 3.9
-Tested up to: 5.0.3
-Stable tag: 1.0.1
+Tested up to: 5.2.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,9 @@ Templates are built into the plugin with default CSS to create the basic layout 
 
 
 ## Changelog
+
+### 1.0.2
+* Cease use of a deprecated Genesis function. Use standard WordPress function instead.
 
 ### 1.0.1
 * Removes Layouts Settings from Authors, Series and Tags.
