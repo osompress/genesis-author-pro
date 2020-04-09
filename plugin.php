@@ -1,17 +1,18 @@
 <?php
-/*
-
-Plugin Name: Genesis Author Pro
-Plugin URI: https://wordpress.org/plugins/genesis-author-pro/
-Description: Adds default Book CPT to any Genesis HTML5 theme.
-Version: 1.0.2
-Author: StudioPress
-Author URI: https://www.studiopress.com/
-Text Domain: genesis-author-pro
-Domain Path /languages/
-
-*/
-
+/**
+ *
+ * Plugin Name: Genesis Author Pro
+ * Plugin URI: https://wordpress.org/plugins/genesis-author-pro/
+ * Description: Adds default Book CPT to any Genesis HTML5 theme.
+ * Version: 1.0.2
+ * Author: StudioPress
+ * Author URI: https://www.studiopress.com/
+ * Text Domain: genesis-author-pro
+ * Domain Path /languages/
+ *
+ * @package genesis-author-pro
+ *
+ */
 if ( !defined( 'ABSPATH' ) ) {
 	die( "Sorry, you are not allowed to access this page directly." );
 }
