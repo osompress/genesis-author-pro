@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  svn: studiopress/wp-svn@0.1
+  wp-svn: studiopress/wp-svn@0.1
 
 workflows:
   deploy:
