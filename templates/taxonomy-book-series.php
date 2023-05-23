@@ -2,7 +2,7 @@
 /**
  * This file adds the book series taxonomy archive template to the Genesis Author Pro plugin.
  *
- * @author StudioPress
+ * @author OsomPress
  * @package Genesis Author Pro
  * @subpackage Template
  */

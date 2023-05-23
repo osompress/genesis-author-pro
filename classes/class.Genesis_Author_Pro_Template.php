@@ -3,7 +3,7 @@
  * Contains the Genesis_Author_Pro_Template class.
  * Conditionally changes the template files.
  *
- * @author StudioPress
+ * @author OsomPress
  * @package Genesis Author Pro
  * @subpackage Template
  */

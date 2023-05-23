@@ -2,7 +2,7 @@
 /**
  * This file adds the custom author_pro post type single post template to the Executive Pro Theme.
  *
- * @author StudioPress
+ * @author OsomPress
  * @package Executive Pro
  * @subpackage Template
  */

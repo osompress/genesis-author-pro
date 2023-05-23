@@ -2,7 +2,7 @@
 /**
  * This file contains functions used in the creation of the Genesis Author Pro template files.
  *
- * @author StudioPress
+ * @author OsomPress
  * @package Genesis Author Pro
  * @subpackage Template
  */
