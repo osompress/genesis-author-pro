@@ -3,7 +3,7 @@ Contributors: nick_thegeek, dreamwhisper, laurenmancke, studiopress, marksabbath
 Tags: genesis, authors, books
 Requires at least: 3.9
 Tested up to: 5.4
-Stable tag: 1.0.3
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,9 @@ Templates are built into the plugin with default CSS to create the basic layout 
 
 
 ## Changelog
+
+### 1.1
+* Added compatibility with the block editor.
 
 ### 1.0.3
 * Changed ownership from StudioPress to OsomPress. You can read more details about it in https://osompress.com/4-new-plugins-join-osompress-family/.
